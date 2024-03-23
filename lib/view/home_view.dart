@@ -8,20 +8,17 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //test command line
-      backgroundColor: AppColor.mainColor,
+
       appBar: AppBar(
-        backgroundColor: AppColor.mainColor,
+
         actions: const [
-          Text('data'),
+          Text('Home'),
         ],
       ),
       body: const Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('test'),
-          Text('test'),
-          Text('test'),
         ],
       )),
     );
