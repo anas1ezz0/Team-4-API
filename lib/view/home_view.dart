@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:team_project/theming/colors.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -7,9 +6,10 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.mainColor,
+      //test command line
+
       appBar: AppBar(
-        backgroundColor: AppColor.mainColor,
+
         actions: const [
           Text('Home'),
         ],
@@ -18,7 +18,6 @@ class HomeView extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Home View'),
         ],
       )),
     );
