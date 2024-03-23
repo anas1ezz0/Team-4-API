@@ -17,8 +17,7 @@ class HomeView extends StatelessWidget {
       body: const Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-        ],
+        children: [],
       )),
     );
   }
