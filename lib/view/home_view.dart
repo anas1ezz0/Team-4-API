@@ -11,7 +11,7 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColor.mainColor,
         actions: const [
-          Text('data'),
+          Text('Home'),
         ],
       ),
       body: const Center(
