@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:team_project/theming/colors.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
