@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:team_project/helpers/extentions.dart';
 import 'package:team_project/routing/routing.dart';
+import 'package:team_project/theming/colors.dart';
 import 'package:team_project/view/onBoarding/model/onboarding_model.dart';
-import 'package:team_project/view/onBoarding/ui/widgets/costom_appbar.dart';
+import 'package:team_project/view/onBoarding/ui/widgets/onBoarding_Header.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});
@@ -41,7 +41,7 @@ class _OnBoardingState extends State<OnBoarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff336EA6),
+      backgroundColor: AppColor.mainColor,
       body: SafeArea(
         child: Stack(
           children: [
@@ -99,7 +99,7 @@ class _OnBoardingState extends State<OnBoarding> {
                             ),
                             onPressed: () {
                               if (isLast) {
-                                context.pushReplacementNamed(Routes.homeScreen);
+                                context.pushReplacementNamed(Routes.signInScreen);
                               } else {
                                 boardingController.nextPage(
                                   duration: const Duration(milliseconds: 400),
@@ -117,7 +117,6 @@ class _OnBoardingState extends State<OnBoarding> {
                                       fontSize: 20,
                                       fontWeight: FontWeight.w500),
                                 ),
-
                                 const SizedBox(
                                   width: 9,
                                 ),
@@ -157,7 +156,7 @@ Widget onboardingbody(OnboardingModel model) {
 
 Widget bottomContainer(OnboardingModel model) {
   return Container(
-    height: 290,
+      height: 290,
       padding: const EdgeInsets.all(15),
       width: double.infinity,
       decoration: const BoxDecoration(

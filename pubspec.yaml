@@ -34,7 +34,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
-  flutter_native_splash: ^2.4.0
+  flutter_native_splash: 2.3.11
   flutter_screenutil: ^5.9.0
   flutter_svg: ^2.0.10+1
   smooth_page_indicator: ^1.1.0
@@ -63,6 +63,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -90,3 +91,18 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_assets_generator:
+  # Optional. Sets the directory of generated localization files. Provided value should be a valid path on lib dir. Default: generated
+  output_dir: generated
+  # Optional. Sets whether utomatic monitoring of file changes. Default: true
+  auto_detection: true
+  # Optional. Sets file name conversion rules. Default: true
+  named_with_parent: false
+  # Optional. Sets the name for the generated localization file. Default: assets
+  output_filename: app_assets
+  # Optional. Sets the name for the generated localization class. Default: Assets
+  class_name: AppAssets
+  # Optional. Sets the filename split pattern for filename split. Default: [-_]
+  filename_split_pattern: "[-_]"
+  # Optional. Configuring ignore paths. Default: [],e.g: ["assets/fonts", "assets/images/dark", ...]
+  path_ignore: []

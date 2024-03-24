@@ -1,6 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.team4_api.app">
     <application
-        android:label="team_project"
+        android:label="team4_api"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
