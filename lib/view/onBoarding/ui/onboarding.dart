@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:team_project/helpers/extentions.dart';
@@ -117,7 +116,6 @@ class _OnBoardingState extends State<OnBoarding> {
                                       fontSize: 20,
                                       fontWeight: FontWeight.w500),
                                 ),
-
                                 const SizedBox(
                                   width: 9,
                                 ),
@@ -157,7 +155,7 @@ Widget onboardingbody(OnboardingModel model) {
 
 Widget bottomContainer(OnboardingModel model) {
   return Container(
-    height: 290,
+      height: 290,
       padding: const EdgeInsets.all(15),
       width: double.infinity,
       decoration: const BoxDecoration(
