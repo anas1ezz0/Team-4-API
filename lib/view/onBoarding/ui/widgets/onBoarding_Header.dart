@@ -22,7 +22,7 @@ class OnBoardingHeader extends StatelessWidget {
           padding: const EdgeInsets.only(right: 10.0),
           child: GestureDetector(
             onTap: () {
-              context.pushReplacementNamed(Routes.homeScreen);
+              context.pushReplacementNamed(Routes.signInScreen);
             },
             child: const Text(
               'Skip',
