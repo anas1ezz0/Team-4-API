@@ -45,7 +45,6 @@ class _OnBoardingState extends State<OnBoarding> {
       body: SafeArea(
         child: Stack(
           children: [
-            const OnBoardingHeader(),
             PageView.builder(
               scrollDirection: Axis.horizontal,
               onPageChanged: (int index) {
@@ -66,6 +65,7 @@ class _OnBoardingState extends State<OnBoarding> {
               },
               itemCount: onBoardingList.length,
             ),
+            const OnBoardingHeader(),
             Positioned(
               bottom: 0,
               left: -160,
