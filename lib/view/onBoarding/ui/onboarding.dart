@@ -43,42 +43,40 @@ class _OnBoardingState extends State<OnBoarding> {
     return Scaffold(
       backgroundColor: const Color(0xff336EA6),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const OnBoardingHeader(),
-              Flexible(
-                child: SizedBox(
-                  height: 650.h,
-                  child: PageView.builder(
-                    scrollDirection: Axis.horizontal,
-                    onPageChanged: (int index) {
-                      if (index == onBoardingList.length - 1) {
-                        setState(() {
-                          isLast = true;
-                        });
-                      } else {
-                        setState(() {
-                          isLast = false;
-                        });
-                      }
-                    },
-                    physics: const BouncingScrollPhysics(),
-                    controller: boardingController,
-                    itemBuilder: (context, index) {
-                      return onboardingbody(onBoardingList[index]);
-                    },
-                    itemCount: onBoardingList.length,
-                  ),
-                ),
-              ),
-              Container(
+        child: Stack(
+          children: [
+            const OnBoardingHeader(),
+            PageView.builder(
+              scrollDirection: Axis.horizontal,
+              onPageChanged: (int index) {
+                if (index == onBoardingList.length - 1) {
+                  setState(() {
+                    isLast = true;
+                  });
+                } else {
+                  setState(() {
+                    isLast = false;
+                  });
+                }
+              },
+              physics: const BouncingScrollPhysics(),
+              controller: boardingController,
+              itemBuilder: (context, index) {
+                return onboardingbody(onBoardingList[index]);
+              },
+              itemCount: onBoardingList.length,
+            ),
+            Positioned(
+              bottom: 0,
+              left: -160,
+              right: -160,
+              child: Container(
                 padding: const EdgeInsets.all(15),
                 color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       SmoothPageIndicator(
                         controller: boardingController,
@@ -110,6 +108,7 @@ class _OnBoardingState extends State<OnBoarding> {
                               }
                             },
                             child: Row(
+                              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 const Text(
                                   'Next',
@@ -118,6 +117,7 @@ class _OnBoardingState extends State<OnBoarding> {
                                       fontSize: 20,
                                       fontWeight: FontWeight.w500),
                                 ),
+
                                 const SizedBox(
                                   width: 9,
                                 ),
@@ -132,8 +132,8 @@ class _OnBoardingState extends State<OnBoarding> {
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -146,7 +146,7 @@ Widget onboardingbody(OnboardingModel model) {
       Center(
         child: Image.asset(
           model.image,
-          height: 250,
+          height: 340,
         ),
       ),
       const Spacer(),
@@ -157,6 +157,7 @@ Widget onboardingbody(OnboardingModel model) {
 
 Widget bottomContainer(OnboardingModel model) {
   return Container(
+    height: 290,
       padding: const EdgeInsets.all(15),
       width: double.infinity,
       decoration: const BoxDecoration(
