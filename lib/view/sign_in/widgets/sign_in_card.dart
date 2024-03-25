@@ -4,15 +4,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/app_assets.dart';
 import '../../../helpers/spacing.dart';
 import '../../../theming/colors.dart';
+import '../../sign_up/widgets/validator_function.dart';
 import 'custom_button.dart';
 import 'custom_text_form_field.dart';
 import 'forgot_password.dart';
 import 'markaz_alaml_text.dart';
 
 class SignInCard extends StatelessWidget {
-  const SignInCard({
+   SignInCard({
     super.key,
   });
+
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +28,7 @@ class SignInCard extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.white,
+            color: AppColor.secondaryColor,
             width: 8,
           ),
           color: AppColor.mainColor,
@@ -38,20 +43,32 @@ class SignInCard extends StatelessWidget {
               Image.asset(AppAssets.logo),
               const MarkazAlAmalText(),
               verticalSpace(20),
-              const AppTextFormField(
+              AppTextFormField(
+                controller: emailController,
+                type: TextInputType.emailAddress,
                 hintText: 'Email',
-                prefixIcon: Icon(
+                prefixIcon:  Icon(
                   Icons.email_outlined,
-                  color: Colors.white,
+                  color: AppColor.secondaryColor,
                 ),
+                validator: (String? value ) {
+                  validatorFunction(value: value!, text: 'your email address');
+                },
               ),
               verticalSpace(16),
-              const AppTextFormField(
+              AppTextFormField(
+                 controller: passwordController,
+                type: TextInputType.visiblePassword,
                 hintText: 'Password',
-                prefixIcon: Icon(
+                prefixIcon:  Icon(
                   Icons.lock_outline_rounded,
-                  color: Colors.white,
+                  color: AppColor.secondaryColor,
                 ),
+                suffixIcon: Icons.visibility_off_rounded,
+                validator: (String? value){
+                  validatorFunction(value: value!, text: 'your password');
+
+                },
               ),
               verticalSpace(27),
               AppTextButton(

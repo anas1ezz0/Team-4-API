@@ -3,6 +3,9 @@ import 'package:team_project/routing/routing.dart';
 import 'package:team_project/view/home_view.dart';
 import 'package:team_project/view/onBoarding/ui/onboarding.dart';
 import 'package:team_project/view/sign_in/sign_in_view.dart';
+import '../view/sign_up/pre_sign_up_view.dart';
+import '../view/sign_up/sign_up_view.dart';
+import '../view/sign_up/welcome_page_view.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -21,6 +24,18 @@ class AppRouter {
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeView(),
+        );
+      case Routes.preSignUpScreen:
+        return MaterialPageRoute(
+          builder: (_) => const PreSignUpView(),
+        );
+      case Routes.signUpScreen:
+        return MaterialPageRoute(
+          builder: (_) => const SignUpView(),
+        );
+      case Routes.welcomeSignUpScreen:
+        return MaterialPageRoute(
+          builder: (_) => const WelcomeSignUpPageView(),
         );
 
       default:

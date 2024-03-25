@@ -9,10 +9,8 @@ class HomeView extends StatelessWidget {
       //test command line........
 
       appBar: AppBar(
-
-        actions: const [
-          Text('Home'),
-        ],
+        centerTitle: true,
+        title:const Text('Home'),
       ),
       body: const Center(
           child: Column(
