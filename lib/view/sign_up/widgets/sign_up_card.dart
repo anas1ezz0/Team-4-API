@@ -93,7 +93,10 @@ class SignUnCard extends StatelessWidget {
                       Icons.lock_outline_rounded,
                       color: AppColor.secondaryColor,
                     ),
-                    suffixIcon:     Icons.visibility_off_rounded,
+                    suffixIcon:   IconButton(
+                      onPressed: () {},
+                      icon: const Icon( Icons.visibility_off_rounded),
+                    ) ,
                     validator: (String? value) {
                       passConfirmValidatorFunction(
                           value: value!,
@@ -111,8 +114,10 @@ class SignUnCard extends StatelessWidget {
                       Icons.lock_outline_rounded,
                       color: AppColor.secondaryColor,
                     ),
-                    suffixIcon:    Icons.visibility_off_rounded,
-
+                    suffixIcon:   IconButton(
+                      onPressed: () {},
+                      icon: const Icon( Icons.visibility_off_rounded),
+                    ) ,
                     validator: (String? value) {
                       passConfirmValidatorFunction(
                           value: value!,
