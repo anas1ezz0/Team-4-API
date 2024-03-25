@@ -3,8 +3,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:team_project/helpers/extentions.dart';
 import 'package:team_project/routing/routing.dart';
+import 'package:team_project/theming/colors.dart';
 import 'package:team_project/view/onBoarding/model/onboarding_model.dart';
-import 'package:team_project/view/onBoarding/ui/widgets/costom_appbar.dart';
+import 'package:team_project/view/onBoarding/ui/widgets/onBoarding_Header.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});
@@ -40,11 +41,10 @@ class _OnBoardingState extends State<OnBoarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff336EA6),
+      backgroundColor: AppColor.mainColor,
       body: SafeArea(
         child: Stack(
           children: [
-            const OnBoardingHeader(),
             PageView.builder(
               scrollDirection: Axis.horizontal,
               onPageChanged: (int index) {
@@ -65,6 +65,7 @@ class _OnBoardingState extends State<OnBoarding> {
               },
               itemCount: onBoardingList.length,
             ),
+            const OnBoardingHeader(),
             Positioned(
               bottom: 0,
               left: -160,
@@ -98,7 +99,7 @@ class _OnBoardingState extends State<OnBoarding> {
                             ),
                             onPressed: () {
                               if (isLast) {
-                                context.pushReplacementNamed(Routes.homeScreen);
+                                context.pushReplacementNamed(Routes.signInScreen);
                               } else {
                                 boardingController.nextPage(
                                   duration: const Duration(milliseconds: 400),

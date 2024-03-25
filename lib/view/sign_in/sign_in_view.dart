@@ -10,8 +10,8 @@ class SignInView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+
+    return Scaffold(
           resizeToAvoidBottomInset: false,
           backgroundColor: AppColor.mainColor,
           body: const Stack(
@@ -22,7 +22,7 @@ class SignInView extends StatelessWidget {
               SignInCard(),
               Positioned(bottom: 20, child: CustomHaveAnAccountAndSignUp())
             ],
-          )),
+          )
     );
   }
 }
