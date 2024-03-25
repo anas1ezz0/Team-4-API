@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:team_project/view/forgetPassword/widgets/forget_password_bottom_sheet.dart';
 
 import '../../../core/app_assets.dart';
 import '../../../helpers/spacing.dart';
@@ -63,7 +64,11 @@ class SignInCard extends StatelessWidget {
                     color: AppColor.mainColor,
                   )),
               verticalSpace(9),
-              const ForgotPasswordWidget(),
+              InkWell(
+                  onTap: () {
+                    ModalBottomSheet.forgetPasswordBottomSheet(context);
+                  },
+                  child: const ForgotPasswordWidget()),
               verticalSpace(37),
             ]),
           ),
