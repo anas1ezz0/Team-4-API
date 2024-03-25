@@ -35,7 +35,6 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: Routes.onBoardingScreen,
         onGenerateRoute: appRouter.generateRoute,
-        // home: const PreSignUpScreen(),
       ),
     );
   }

@@ -14,13 +14,13 @@ class SignInView extends StatelessWidget {
     return Scaffold(
           resizeToAvoidBottomInset: false,
           backgroundColor: AppColor.mainColor,
-          body: const Stack(
+          body:  Stack(
             alignment: Alignment.center,
             children: [
-              LetsStartText(),
-              CircularWhiteBackground(),
-              SignInCard(),
-              Positioned(bottom: 20, child: CustomHaveAnAccountAndSignUp())
+              LetsStartText(text: 'in',),
+              const CircularWhiteBackground(),
+               SignInCard(),
+               Positioned(bottom: 20, child: CustomHaveAnAccountAndSignUp(text: 'Up', haveAccountOrNot: 'Don’t',))
             ],
           )
     );
