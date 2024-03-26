@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:team_project/helpers/spacing.dart';
 import 'package:team_project/theming/colors.dart';
@@ -9,8 +10,9 @@ import 'package:team_project/view/sign_in/widgets/custom_button.dart';
 import 'package:team_project/view/sign_in/widgets/custom_text_form_field.dart';
 
 class ForgetPasswordWidget extends StatelessWidget {
-  const ForgetPasswordWidget({super.key});
-
+  ForgetPasswordWidget({super.key});
+  var passwordController = TextEditingController();
+  var formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,7 +22,10 @@ class ForgetPasswordWidget extends StatelessWidget {
           text: "Forget Password",
         ),
         verticalSpace(15),
-        EnterMail(text: "Enter your email for verification process we \nwill send 5 digits code to your email",),
+        EnterMail(
+          text:
+              "Enter your email for verification process we \nwill send 5 digits code to your email",
+        ),
         verticalSpace(30),
         ForgetPasswordTextWidget(
           text: "Email",
@@ -33,17 +38,26 @@ class ForgetPasswordWidget extends StatelessWidget {
                 color: AppColor.mainColor,
                 width: 1.3,
               )),
+              
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(14),
               borderSide: BorderSide(
                 color: AppColor.mainColor,
                 width: 1.3,
               )),
+              
           prefixIcon: Icon(
             Icons.email,
             color: AppColor.mainColor,
           ),
           hintText: '',
+          controller: passwordController,
+          type: TextInputType.visiblePassword,
+          validator: (String? value) {
+            if (value!.isEmpty) {
+              return "email must not be empty";
+            }
+          },
         ),
         verticalSpace(10),
         AppTextButton(
@@ -51,8 +65,10 @@ class ForgetPasswordWidget extends StatelessWidget {
           buttonWidth: 385,
           borderRadius: 20,
           onPressed: () {
-
             ModalBottomSheet.resetPasswordBottom(context);
+            // if (formKey.currentState!.validate()) {
+            //   ModalBottomSheet.resetPasswordBottom(context);
+            // }
           },
           buttonText: "Continue",
           backgroundColor: AppColor.mainColor,
@@ -63,6 +79,5 @@ class ForgetPasswordWidget extends StatelessWidget {
         )
       ],
     );
-  
   }
 }

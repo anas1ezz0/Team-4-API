@@ -11,13 +11,17 @@ class ModalBottomSheet {
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
         builder: (BuildContext context) {
-          return Padding(
-            padding: MediaQuery.of(context).viewInsets,
-            child: Container(
-                width: 428.w,
-                height: 441.h,
-                padding: const EdgeInsets.all(20),
-                child: const ForgetPasswordWidget()),
+          return SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom
+              ),
+              child: Container(
+                  width: 428.w,
+                  height: 441.h,
+                  padding: const EdgeInsets.all(20),
+                  child:  ForgetPasswordWidget()),
+            ),
           );
         });
   }
@@ -34,7 +38,7 @@ static void resetPasswordBottom(BuildContext context) {
                 width: 428.w,
                 height: 674.h,
                 padding: const EdgeInsets.all(20),
-                child: const ResetPasswordWidget()),
+                child:  ResetPasswordWidget()),
           );
         });
   }
