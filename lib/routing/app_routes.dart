@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:team_project/core/cubit/app_cubit.dart';
 import 'package:team_project/routing/routing.dart';
-import 'package:team_project/view/home_view.dart';
+import 'package:team_project/main_screens.dart';
+import 'package:team_project/view/home_page/home_page.dart';
 import 'package:team_project/view/onBoarding/ui/onboarding.dart';
 import 'package:team_project/view/sign_in/sign_in_view.dart';
 import '../view/sign_up/pre_sign_up_view.dart';
@@ -21,10 +24,6 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const SignInView(),
         );
-      case Routes.homeScreen:
-        return MaterialPageRoute(
-          builder: (_) => const HomeView(),
-        );
       case Routes.preSignUpScreen:
         return MaterialPageRoute(
           builder: (_) => const PreSignUpView(),
@@ -36,6 +35,17 @@ class AppRouter {
       case Routes.welcomeSignUpScreen:
         return MaterialPageRoute(
           builder: (_) => const WelcomeSignUpPageView(),
+        );
+      case Routes.mainScreens:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => AppCubit(),
+            child: const MainScreens(),
+          ),
+        );
+      case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (_) => const HomePage(),
         );
 
       default:

@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:team_project/core/utilts/widgets/custom_text_form_field.dart';
 
 import '../../../core/app_assets.dart';
 import '../../../helpers/spacing.dart';
 import '../../../theming/colors.dart';
 import '../../sign_up/widgets/validator_function.dart';
 import 'custom_button.dart';
-import 'custom_text_form_field.dart';
 import 'forgot_password.dart';
 import 'markaz_alaml_text.dart';
 
 class SignInCard extends StatelessWidget {
-   SignInCard({
+  SignInCard({
     super.key,
   });
 
-  var emailController = TextEditingController();
-  var passwordController = TextEditingController();
-
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,30 +46,31 @@ class SignInCard extends StatelessWidget {
                 controller: emailController,
                 type: TextInputType.emailAddress,
                 hintText: 'Email',
-                prefixIcon:  Icon(
+                prefixIcon: Icon(
                   Icons.email_outlined,
                   color: AppColor.secondaryColor,
                 ),
-                validator: (String? value ) {
+                validator: (String? value) {
                   validatorFunction(value: value!, text: 'your email address');
+                  return null;
                 },
               ),
               verticalSpace(16),
               AppTextFormField(
-                 controller: passwordController,
+                controller: passwordController,
                 type: TextInputType.visiblePassword,
                 hintText: 'Password',
-                prefixIcon:  Icon(
+                prefixIcon: Icon(
                   Icons.lock_outline_rounded,
                   color: AppColor.secondaryColor,
                 ),
-                suffixIcon:   IconButton(
+                suffixIcon: IconButton(
                   onPressed: () {},
-                  icon: const Icon( Icons.visibility_off_rounded),
-                ) ,
-                validator: (String? value){
+                  icon: const Icon(Icons.visibility_off_rounded),
+                ),
+                validator: (String? value) {
                   validatorFunction(value: value!, text: 'your password');
-
+                  return null;
                 },
               ),
               verticalSpace(27),

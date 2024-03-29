@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:team_project/helpers/extentions.dart';
 import 'package:team_project/helpers/sizes.dart';
@@ -15,11 +14,10 @@ class WelcomeSignUpPageView extends StatefulWidget {
 }
 
 class _WelcomeSignUpPageViewState extends State<WelcomeSignUpPageView> {
-
   @override
   void initState() {
     Timer(const Duration(seconds: 2), () {
-      context.pushReplacementNamed(Routes.homeScreen);
+      context.pushReplacementNamed(Routes.mainScreens);
     });
     super.initState();
   }
@@ -51,8 +49,7 @@ class _WelcomeSignUpPageViewState extends State<WelcomeSignUpPageView> {
                     fontSize: 40,
                     color: AppColor.textColor,
                     fontWeight: FontWeight.w800,
-                    letterSpacing: 1.5
-                ),
+                    letterSpacing: 1.5),
               ),
             ),
             verticalSpace(12.13),
@@ -63,9 +60,7 @@ class _WelcomeSignUpPageViewState extends State<WelcomeSignUpPageView> {
                     color: AppColor.textColor,
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
-                    letterSpacing: 0.5
-
-                ),
+                    letterSpacing: 0.5),
                 textAlign: TextAlign.center,
               ),
             )
@@ -73,7 +68,5 @@ class _WelcomeSignUpPageViewState extends State<WelcomeSignUpPageView> {
         ),
       ),
     );
-
   }
 }
-

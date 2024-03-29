@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LetsStartText extends StatelessWidget {
-   LetsStartText({
-    super.key,
-    required this.text
-  });
-  String? text;
+  const LetsStartText({super.key, required this.text});
+  final String? text;
 
   @override
   Widget build(BuildContext context) {

@@ -1,9 +1,8 @@
-
-
 String? validatorFunction({required String value, required String? text}) {
   if (value.isEmpty) {
     return "please enter your $text";
   }
+  return null;
 }
 
 String? passConfirmValidatorFunction(
@@ -16,4 +15,5 @@ String? passConfirmValidatorFunction(
   } else if (confirmPassControllerText != passControllerText) {
     return "Password doesn't match ";
   }
+  return null;
 }

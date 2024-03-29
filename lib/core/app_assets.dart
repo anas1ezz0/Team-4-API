@@ -11,4 +11,8 @@ class AppAssets {
   static const String selectdoctor1 = 'assets/images/select doctor 1.png';
   static const String splash = 'assets/images/splash.png';
   static const String splash2 = 'assets/images/splash 2.png';
+  static const String settings = 'assets/images/settings.svg';
+  static const String homePageHeaderImage =
+      'assets/images/Home_header_Image.png';
+  static const String heart = 'assets/images/heart.png';
 }

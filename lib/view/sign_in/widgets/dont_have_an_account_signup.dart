@@ -6,10 +6,11 @@ import 'package:team_project/helpers/extentions.dart';
 import '../../../routing/routing.dart';
 
 class CustomHaveAnAccountAndSignUp extends StatelessWidget {
-  CustomHaveAnAccountAndSignUp({super.key, required this.text, required this.haveAccountOrNot});
+  const CustomHaveAnAccountAndSignUp(
+      {super.key, required this.text, required this.haveAccountOrNot});
 
-  String? text;
-  String? haveAccountOrNot;
+  final String? text;
+  final String? haveAccountOrNot;
   @override
   Widget build(BuildContext context) {
     return RichText(
@@ -23,8 +24,9 @@ class CustomHaveAnAccountAndSignUp extends StatelessWidget {
         TextSpan(
             text: " Sign $text",
             recognizer: TapGestureRecognizer()
-              ..onTap =
-                  () => text == "Up" ? context.pushReplacementNamed(Routes.preSignUpScreen) : context.pushReplacementNamed(Routes.signInScreen),
+              ..onTap = () => text == "Up"
+                  ? context.pushReplacementNamed(Routes.preSignUpScreen)
+                  : context.pushReplacementNamed(Routes.signInScreen),
             style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 16.sp,

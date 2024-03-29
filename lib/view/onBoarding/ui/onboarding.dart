@@ -68,8 +68,8 @@ class _OnBoardingState extends State<OnBoarding> {
             const OnBoardingHeader(),
             Positioned(
               bottom: 0,
-              left: -160,
-              right: -160,
+              left: -200,
+              right: -220,
               child: Container(
                 padding: const EdgeInsets.all(15),
                 color: Colors.white,
@@ -99,7 +99,8 @@ class _OnBoardingState extends State<OnBoarding> {
                             ),
                             onPressed: () {
                               if (isLast) {
-                                context.pushReplacementNamed(Routes.signInScreen);
+                                context
+                                    .pushReplacementNamed(Routes.signInScreen);
                               } else {
                                 boardingController.nextPage(
                                   duration: const Duration(milliseconds: 400),
