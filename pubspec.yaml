@@ -28,12 +28,12 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  bloc: ^8.1.4
-  conditional_builder_null_safety: ^0.0.6
   cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.5
+  bloc: ^8.1.4
+  conditional_builder_null_safety: ^0.0.6
   flutter_native_splash: 2.3.11
   flutter_screenutil: ^5.9.0
   flutter_svg: ^2.0.10+1
