@@ -28,7 +28,6 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
         theme: ThemeData(
           primaryColor:AppColor.mainColor,
           useMaterial3: true,
