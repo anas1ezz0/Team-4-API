@@ -1,3 +1,4 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,8 +6,22 @@ import 'package:team_project/routing/app_routes.dart';
 import 'package:team_project/routing/routing.dart';
 import 'package:team_project/theming/colors.dart';
 
+import 'core/bloc_abserver.dart';
+import 'helpers/constants.dart';
+import 'helpers/network/local/cache_helper.dart';
+import 'helpers/network/remote/dio_helper.dart';
+
 void main() async {
   await ScreenUtil.ensureScreenSize();
+  WidgetsFlutterBinding.ensureInitialized();
+
+  Bloc.observer = const SimpleBlocObserver();
+  DioHelper.init();
+  await CacheHelper.init();
+
+  token= CacheHelper.getData(key: 'token');
+
+
   runApp(MyApp(
     appRouter: AppRouter(),
   ));

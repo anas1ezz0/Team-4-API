@@ -26,11 +26,11 @@ class AppRouter {
         );
       case Routes.preSignUpScreen:
         return MaterialPageRoute(
-          builder: (_) => const PreSignUpView(),
+          builder: (_) =>  PreSignUpView(),
         );
       case Routes.signUpScreen:
         return MaterialPageRoute(
-          builder: (_) => const SignUpView(),
+          builder: (_) =>  SignUpView(),
         );
       case Routes.welcomeSignUpScreen:
         return MaterialPageRoute(

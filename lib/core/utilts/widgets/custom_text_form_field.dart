@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:team_project/theming/colors.dart';
 
 class AppTextFormField extends StatelessWidget {
   final String hintText;
@@ -13,6 +14,8 @@ class AppTextFormField extends StatelessWidget {
   final TextEditingController controller;
   final TextInputType type;
   final String? Function(String?) validator;
+  final Function? suffixPressed;
+
 
   const AppTextFormField({
     super.key,
@@ -28,20 +31,32 @@ class AppTextFormField extends StatelessWidget {
     required this.controller,
     required this.type,
     required this.validator,
+    this.suffixPressed
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: TextStyle(
+        color: AppColor.secondaryColor
+      ),
       controller: controller,
       keyboardType: type,
       validator: validator,
       obscureText: isObscureText ?? false,
       decoration: InputDecoration(
+        contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10.0),
         prefixIcon: prefixIcon,
         hintText: hintText,
-        hintStyle: hintStyle ?? const TextStyle(color: Colors.white),
-        suffixIcon: suffixIcon,
+        hintStyle: hintStyle ??  TextStyle(color: AppColor.secondaryColor),
+        suffixIcon: suffixIcon != null
+            ? IconButton(
+            onPressed: () {
+              suffixPressed!();
+            },
+            icon: suffixIcon!
+        )
+            : null,
         enabledBorder: enabledBorder ??
             OutlineInputBorder(
                 borderRadius: BorderRadius.circular(14),
