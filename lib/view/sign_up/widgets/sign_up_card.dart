@@ -1,19 +1,15 @@
 // ignore_for_file: avoid_print
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:team_project/core/cubit/sign_up/sign_up/cubit.dart';
 import 'package:team_project/core/cubit/sign_up/sign_up/states.dart';
 import 'package:team_project/core/utilts/widgets/custom_text_form_field.dart';
-import 'package:team_project/helpers/extentions.dart';
-import '../../../core/app_assets.dart';
+import 'package:team_project/view/sign_up/widgets/upload_profile_image.dart';
 import '../../../helpers/spacing.dart';
-import '../../../routing/routing.dart';
 import '../../../theming/colors.dart';
 import '../../sign_in/widgets/custom_button.dart';
-import '../../sign_in/widgets/markaz_alaml_text.dart';
 
 class SignUnCard extends StatelessWidget {
   SignUnCard({
@@ -33,37 +29,38 @@ class SignUnCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SignUpCubit, SignUpStates>(
       listener: (context, state) {
-        if(state is SignUpSuccessState){
+        if (state is SignUpSuccessState) {
           print(state.signUpModel.message);
-          context.pushReplacementNamed(
-              Routes.welcomeSignUpScreen);
+          // context.pushReplacementNamed(
+          //     Routes.welcomeSignUpScreen);
         }
       },
       builder: (context, state) {
         var cubit = SignUpCubit.get(context);
         return Positioned(
-          top: 160.h,
-          left: 44.w,
-          right: 43.w,
-          child: Container(
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: AppColor.secondaryColor,
-                width: 8,
-              ),
-              color: AppColor.mainColor,
-              borderRadius: BorderRadius.circular(30.r),
-            ),
-
-            // height: 400.h,
-            child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-              child: SingleChildScrollView(
-                  child: Form(
+            top: 160.h,
+            left: 44.w,
+            right: 43.w,
+            child: SingleChildScrollView(
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: AppColor.secondaryColor,
+                    width: 8,
+                  ),
+                  color: AppColor.mainColor,
+                  borderRadius: BorderRadius.circular(30.r),
+                ),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                  child: SingleChildScrollView(
+                      child: Form(
                     key: formKey,
                     child: Column(children: [
-                      Image.asset(AppAssets.logo),
-                      const MarkazAlAmalText(),
+                      verticalSpace(15),
+                      const UploadUserProfilePic(),
+                      // Image.asset(AppAssets.logo),
+                      // const MarkazAlAmalText(),
                       verticalSpace(20),
                       AppTextFormField(
                         controller: emailController,
@@ -138,7 +135,7 @@ class SignUnCard extends StatelessWidget {
                             color: AppColor.secondaryColor,
                           ),
                           suffixIcon: Icon(cubit.suffix),
-                          suffixPressed: (){
+                          suffixPressed: () {
                             cubit.changePasswordVisibility();
                           },
                           isObscureText: cubit.passwordObsecureText,
@@ -161,7 +158,7 @@ class SignUnCard extends StatelessWidget {
                             color: AppColor.secondaryColor,
                           ),
                           suffixIcon: Icon(cubit.confirmSuffix),
-                          suffixPressed: (){
+                          suffixPressed: () {
                             cubit.changeConfirmPasswordVisibility();
                           },
                           isObscureText: cubit.confirmObsecureText,
@@ -175,31 +172,39 @@ class SignUnCard extends StatelessWidget {
                             return null;
                           }),
                       verticalSpace(27),
-                      AppTextButton(
-                          onPressed: () {
-                            if(formKey.currentState!.validate()){
-                              cubit.userSignUp(
-                                  email: emailController.text,
-                                  name: nameController.text,
-                                  phone: phoneController.text,
-                                  otp: otpController.text,
-                                  password: passwordController.text,
-                                  confirmPassword: confirmPasswordController.text
-                              );
-                            }
-                          },
-                          buttonText: 'Sign up',
-                          textStyle: TextStyle(
-                            fontSize: 24.sp,
-                            fontWeight: FontWeight.w600,
-                            color: AppColor.mainColor,
-                          )),
+                      state is! SignUpLoadingState
+                          ? AppTextButton(
+                              onPressed: () {
+                                if (formKey.currentState!.validate()) {
+                                  cubit.userSignUp(
+                                    email: emailController.text,
+                                    name: nameController.text,
+                                    phone: phoneController.text,
+                                    otp: otpController.text,
+                                    password: passwordController.text,
+                                    confirmPassword:
+                                        confirmPasswordController.text,
+                                  );
+                                }
+                              },
+                              buttonText: 'Sign up',
+                              textStyle: TextStyle(
+                                fontSize: 24.sp,
+                                fontWeight: FontWeight.w600,
+                                color: AppColor.mainColor,
+                              ))
+                          :  Center(
+                              child: CircularProgressIndicator(
+                                color: AppColor.secondaryColor,
+                              ),
+                            ),
+
                       verticalSpace(20),
                     ]),
                   )),
-            ),
-          ),
-        );
+                ),
+              ),
+            ));
       },
     );
   }

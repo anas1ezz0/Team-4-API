@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 import 'dart:async';
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,8 +31,8 @@ class PreSignUpCard extends StatelessWidget {
     return BlocConsumer<PreSignUpCubit, PreSignUpStates>(
       listener: (context, state) {
         if (state is PreSignUpSuccessState) {
-          print(state.preSignUpModel.message);
-          print(state.preSignUpModel.token);
+          // print(state.preSignUpModel.message);
+          // print(state.preSignUpModel.token);
           CacheHelper.saveData(key: "token", value: state.preSignUpModel.token)
               .then((value) {
             token = state.preSignUpModel.token;
@@ -81,20 +82,31 @@ class PreSignUpCard extends StatelessWidget {
                       }
                       return null;
                     },
+                    onSubmit: (value) {
+                      if (formKey.currentState!.validate()) {
+                        cubit.userPreSignUp(email: emailController.text);
+                      }
+                    },
                   ),
                   verticalSpace(25),
-                  AppTextButton(
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          cubit.userPreSignUp(email: emailController.text);
-                        }
-                      },
-                      buttonText: 'Send OTP',
-                      textStyle: TextStyle(
-                        fontSize: 24.sp,
-                        fontWeight: FontWeight.w600,
-                        color: AppColor.mainColor,
-                      )),
+                  state is! PreSignUpLoadingState
+                      ? AppTextButton(
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              cubit.userPreSignUp(email: emailController.text);
+                            }
+                          },
+                          buttonText: 'Send OTP',
+                          textStyle: TextStyle(
+                            fontSize: 24.sp,
+                            fontWeight: FontWeight.w600,
+                            color: AppColor.mainColor,
+                          ))
+                      : Center(
+                          child: CircularProgressIndicator(
+                            color: AppColor.secondaryColor,
+                          ),
+                        ),
                   verticalSpace(30),
                   if (state is PreSignUpSuccessState)
                     Padding(

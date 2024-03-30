@@ -15,7 +15,7 @@ class AppTextFormField extends StatelessWidget {
   final TextInputType type;
   final String? Function(String?) validator;
   final Function? suffixPressed;
-
+  final Function(String)? onSubmit;
 
   const AppTextFormField({
     super.key,
@@ -31,7 +31,8 @@ class AppTextFormField extends StatelessWidget {
     required this.controller,
     required this.type,
     required this.validator,
-    this.suffixPressed
+    this.suffixPressed,
+    this.onSubmit
   });
 
   @override
@@ -44,6 +45,7 @@ class AppTextFormField extends StatelessWidget {
       keyboardType: type,
       validator: validator,
       obscureText: isObscureText ?? false,
+      onFieldSubmitted: onSubmit,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10.0),
         prefixIcon: prefixIcon,

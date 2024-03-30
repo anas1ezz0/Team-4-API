@@ -29,6 +29,7 @@ class PreSignUpCubit extends Cubit<PreSignUpStates>{
         },
     ).then((value){
       preSignUpModel= PreSignUpModel.fromJson(value.data);
+      print(":::::::::::::::::::::::::::PRE SIGN UP RESPONSE ${value.data}:::::::::::::::::::::::::::");
       emit(PreSignUpSuccessState(preSignUpModel!));
     }).catchError((error){
       print(error.toString());

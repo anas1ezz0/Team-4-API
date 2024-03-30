@@ -1,28 +1,16 @@
 import 'package:dio/dio.dart';
 
+
 class DioHelper{
   static late Dio dio;
 
   static init(){
     dio= Dio(
         BaseOptions(
-          baseUrl: 'https://markaz-el-amal.onrender.com/auth/patient/',
+          // baseUrl: 'https://markaz-el-amal.onrender.com/auth/patient/',
+          baseUrl: 'http://10.0.2.2:5000/auth/patient/',
           receiveDataWhenStatusError: true,
         )
-    );
-  }
-
-  static Future<Response>  getData({
-    required String url,
-    Map<String, dynamic>? query,
-    String? token,
-  })async{
-    dio.options.headers={
-      'Authorization':token??'',
-    };
-    return await dio.get(
-      url,
-      queryParameters: query,
     );
   }
 
@@ -31,14 +19,37 @@ class DioHelper{
     required Map<String, dynamic> data,
     Map<String, dynamic>? query,
     String? token,
+    bool isFormData=false,
   })async {
     dio.options.headers={
       'Authorization':token??'',
+      'Content-Type': 'application/json',
     };
     return dio.post(
+        url,
+        queryParameters: query,
+        data: isFormData ? FormData.fromMap(data) : data,
+
+        options: Options(
+          validateStatus: (status) => true,
+          followRedirects: false,
+        )
+    );
+  }
+
+
+  static Future<Response>  getData({
+    required String url,
+    Map<String, dynamic>? query,
+    String? token,
+  })async{
+    dio.options.headers={
+      'Authorization':token??'',
+      'Content-Type': 'application/json',
+    };
+    return await dio.get(
       url,
       queryParameters: query,
-      data: data,
     );
   }
 
@@ -50,6 +61,7 @@ class DioHelper{
   })async {
     dio.options.headers={
       'Authorization':token??'',
+      'Content-Type': 'application/json',
     };
     return dio.put(
       url,

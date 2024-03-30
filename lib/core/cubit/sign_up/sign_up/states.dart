@@ -17,6 +17,8 @@ class SignUpErrorState extends SignUpStates {
   SignUpErrorState(this.error);
 }
 
+class UploadProfilePicSuccessState extends SignUpStates {}
+
 class SignUpPasswordVisibilityState extends SignUpStates{}
 
 class SignUpConfirmPasswordVisibilityState extends SignUpStates{}
