@@ -6,8 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:team_project/core/cubit/sign_up/sign_up/cubit.dart';
 import 'package:team_project/core/cubit/sign_up/sign_up/states.dart';
 import 'package:team_project/core/utilts/widgets/custom_text_form_field.dart';
+import 'package:team_project/helpers/extentions.dart';
 import 'package:team_project/view/sign_up/widgets/upload_profile_image.dart';
 import '../../../helpers/spacing.dart';
+import '../../../routing/routing.dart';
 import '../../../theming/colors.dart';
 import '../../sign_in/widgets/custom_button.dart';
 
@@ -31,8 +33,7 @@ class SignUnCard extends StatelessWidget {
       listener: (context, state) {
         if (state is SignUpSuccessState) {
           print(state.signUpModel.message);
-          // context.pushReplacementNamed(
-          //     Routes.welcomeSignUpScreen);
+          context.pushReplacementNamed(Routes.welcomeSignUpScreen);
         }
       },
       builder: (context, state) {
@@ -59,8 +60,6 @@ class SignUnCard extends StatelessWidget {
                     child: Column(children: [
                       verticalSpace(15),
                       const UploadUserProfilePic(),
-                      // Image.asset(AppAssets.logo),
-                      // const MarkazAlAmalText(),
                       verticalSpace(20),
                       AppTextFormField(
                         controller: emailController,
@@ -134,11 +133,13 @@ class SignUnCard extends StatelessWidget {
                             Icons.lock_outline_rounded,
                             color: AppColor.secondaryColor,
                           ),
-                          suffixIcon: Icon(cubit.suffix),
-                          suffixPressed: () {
-                            cubit.changePasswordVisibility();
-                          },
-                          isObscureText: cubit.passwordObsecureText,
+                          suffixIcon: IconButton(
+                            onPressed: (){
+                              cubit.changePasswordVisibility();
+                            },
+                            icon: cubit.suffixIcon,
+                          ),
+                          isObscureText: cubit.obSecureText,
                           validator: (String? value) {
                             if (value!.isEmpty) {
                               return "please enter your password";
@@ -147,30 +148,47 @@ class SignUnCard extends StatelessWidget {
                               return "Password and confirm password didn't match ";
                             }
                             return null;
-                          }),
+                          }
+                          ),
                       verticalSpace(16),
                       AppTextFormField(
-                          controller: confirmPasswordController,
-                          type: TextInputType.visiblePassword,
-                          hintText: 'Confirm Password',
-                          prefixIcon: Icon(
-                            Icons.lock_outline_rounded,
-                            color: AppColor.secondaryColor,
-                          ),
-                          suffixIcon: Icon(cubit.confirmSuffix),
-                          suffixPressed: () {
+                        controller: confirmPasswordController,
+                        type: TextInputType.visiblePassword,
+                        hintText: 'Confirm Password',
+                        prefixIcon: Icon(
+                          Icons.lock_outline_rounded,
+                          color: AppColor.secondaryColor,
+                        ),
+                        suffixIcon: IconButton(
+                          onPressed: (){
                             cubit.changeConfirmPasswordVisibility();
                           },
-                          isObscureText: cubit.confirmObsecureText,
-                          validator: (String? value) {
-                            if (value!.isEmpty) {
-                              return "please enter your password confirmation";
-                            } else if (confirmPasswordController.text !=
-                                passwordController.text) {
-                              return "Password and confirm password didn't match ";
-                            }
-                            return null;
-                          }),
+                          icon: cubit.confirmSuffixIcon,
+                        ),
+                        isObscureText: cubit.confirmObSecureText,
+                        validator: (String? value) {
+                          if (value!.isEmpty) {
+                            return "please enter your password confirmation";
+                          } else if (confirmPasswordController.text !=
+                              passwordController.text) {
+                            return "Password and confirm password didn't match ";
+                          }
+                          return null;
+                        },
+                        onSubmit: (value) {
+                          if (formKey.currentState!.validate()) {
+                            cubit.userSignUp(
+                              email: emailController.text,
+                              name: nameController.text,
+                              phone: phoneController.text,
+                              otp: otpController.text,
+                              password: passwordController.text,
+                              confirmPassword:
+                              confirmPasswordController.text,
+                            );
+                          }
+                        },
+                      ),
                       verticalSpace(27),
                       state is! SignUpLoadingState
                           ? AppTextButton(
@@ -193,12 +211,11 @@ class SignUnCard extends StatelessWidget {
                                 fontWeight: FontWeight.w600,
                                 color: AppColor.mainColor,
                               ))
-                          :  Center(
+                          : Center(
                               child: CircularProgressIndicator(
                                 color: AppColor.secondaryColor,
                               ),
                             ),
-
                       verticalSpace(20),
                     ]),
                   )),

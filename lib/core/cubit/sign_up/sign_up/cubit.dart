@@ -1,6 +1,10 @@
 // ignore_for_file: avoid_print
 
 
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,7 +43,7 @@ class SignUpCubit extends Cubit<SignUpStates>{
         "phone" : phone,
         "name" : name,
         "OTP" : otp,
-        "image" :await uploadProfilePic(profilePic!),
+        "image" :await uploadImageToAPI(profilePic!),
         "token" : token,
       },
       query:{
@@ -66,22 +70,19 @@ class SignUpCubit extends Cubit<SignUpStates>{
     );
   }
 
-  IconData suffix=Icons.visibility_rounded;
-  bool passwordObsecureText= true;
-
-  void changePasswordVisibility (){
-    passwordObsecureText =! passwordObsecureText;
-    suffix= passwordObsecureText? Icons.visibility_rounded : Icons.visibility_off_rounded;
+  Widget suffixIcon=const Icon(Icons.visibility_rounded);
+  bool obSecureText= true;
+  void changePasswordVisibility(){
+    obSecureText =! obSecureText;
+    suffixIcon = obSecureText ? const Icon(Icons.visibility_rounded) : const Icon(Icons.visibility_off_rounded);
     emit(SignUpPasswordVisibilityState());
   }
 
-  IconData confirmSuffix=Icons.visibility_rounded;
-  bool confirmObsecureText= true;
-
-  void changeConfirmPasswordVisibility (){
-    confirmObsecureText =! confirmObsecureText;
-    confirmSuffix= confirmObsecureText? Icons.visibility_rounded : Icons.visibility_off_rounded;
+  Widget confirmSuffixIcon=const Icon(Icons.visibility_rounded);
+  bool confirmObSecureText= true;
+  void changeConfirmPasswordVisibility(){
+    confirmObSecureText =! confirmObSecureText;
+    confirmSuffixIcon = confirmObSecureText ? const Icon(Icons.visibility_rounded) : const Icon(Icons.visibility_off_rounded);
     emit(SignUpConfirmPasswordVisibilityState());
   }
-
 }

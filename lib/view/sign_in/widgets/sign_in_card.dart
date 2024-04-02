@@ -65,8 +65,8 @@ class SignInCard extends StatelessWidget {
                   color: AppColor.secondaryColor,
                 ),
                 suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.visibility_off_rounded),
+                  onPressed: (){},
+                  icon:const Icon(Icons.visibility_rounded)
                 ),
                 validator: (String? value) {
                   validatorFunction(value: value!, text: 'your password');

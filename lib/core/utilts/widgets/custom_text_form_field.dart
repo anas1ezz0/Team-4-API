@@ -5,16 +5,17 @@ class AppTextFormField extends StatelessWidget {
   final String hintText;
   final TextStyle? inputTextStyle;
   final TextStyle? hintStyle;
-  final bool? isObscureText;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
+  final bool? isObscureText;
+  final Function? suffixPressed;
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
   final Color? backgroundColor;
   final TextEditingController controller;
   final TextInputType type;
   final String? Function(String?) validator;
-  final Function? suffixPressed;
+
   final Function(String)? onSubmit;
 
   const AppTextFormField({
@@ -47,18 +48,12 @@ class AppTextFormField extends StatelessWidget {
       obscureText: isObscureText ?? false,
       onFieldSubmitted: onSubmit,
       decoration: InputDecoration(
+        // labelText: hintText,
         contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10.0),
         prefixIcon: prefixIcon,
         hintText: hintText,
         hintStyle: hintStyle ??  TextStyle(color: AppColor.secondaryColor),
-        suffixIcon: suffixIcon != null
-            ? IconButton(
-            onPressed: () {
-              suffixPressed!();
-            },
-            icon: suffixIcon!
-        )
-            : null,
+        suffixIcon: suffixIcon,
         enabledBorder: enabledBorder ??
             OutlineInputBorder(
                 borderRadius: BorderRadius.circular(14),
