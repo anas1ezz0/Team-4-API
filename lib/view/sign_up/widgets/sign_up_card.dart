@@ -11,7 +11,7 @@ import 'package:team_project/view/sign_up/widgets/upload_profile_image.dart';
 import '../../../helpers/spacing.dart';
 import '../../../routing/routing.dart';
 import '../../../theming/colors.dart';
-import '../../sign_in/widgets/custom_button.dart';
+import '../../sign_in/presentation/view/widgets/custom_button.dart';
 
 class SignUnCard extends StatelessWidget {
   SignUnCard({
@@ -134,7 +134,7 @@ class SignUnCard extends StatelessWidget {
                             color: AppColor.secondaryColor,
                           ),
                           suffixIcon: IconButton(
-                            onPressed: (){
+                            onPressed: () {
                               cubit.changePasswordVisibility();
                             },
                             icon: cubit.suffixIcon,
@@ -148,8 +148,7 @@ class SignUnCard extends StatelessWidget {
                               return "Password and confirm password didn't match ";
                             }
                             return null;
-                          }
-                          ),
+                          }),
                       verticalSpace(16),
                       AppTextFormField(
                         controller: confirmPasswordController,
@@ -160,7 +159,7 @@ class SignUnCard extends StatelessWidget {
                           color: AppColor.secondaryColor,
                         ),
                         suffixIcon: IconButton(
-                          onPressed: (){
+                          onPressed: () {
                             cubit.changeConfirmPasswordVisibility();
                           },
                           icon: cubit.confirmSuffixIcon,
@@ -183,8 +182,7 @@ class SignUnCard extends StatelessWidget {
                               phone: phoneController.text,
                               otp: otpController.text,
                               password: passwordController.text,
-                              confirmPassword:
-                              confirmPasswordController.text,
+                              confirmPassword: confirmPasswordController.text,
                             );
                           }
                         },

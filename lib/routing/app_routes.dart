@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team_project/core/cubit/app_cubit.dart';
+import 'package:team_project/core/di/service_locator.dart';
 import 'package:team_project/routing/routing.dart';
 import 'package:team_project/view/home_page/home_page.dart';
 import 'package:team_project/view/onBoarding/ui/onboarding.dart';
+import 'package:team_project/view/sign_in/presentation/view_model/sign_in_cubit.dart';
 import 'package:team_project/view/sign_in/sign_in_view.dart';
 import '../view/all_screens.dart';
+import '../view/sign_in/data/repos/sign_in_repo_imp.dart';
 import '../view/sign_up/pre_sign_up_view.dart';
 import '../view/sign_up/sign_up_view.dart';
 import '../view/sign_up/welcome_page_view.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
-    //this arguments to be passed in any screen like this ( arguments as ClassName )
     final arguments = settings.arguments;
 
     switch (settings.name) {
@@ -22,15 +24,18 @@ class AppRouter {
         );
       case Routes.signInScreen:
         return MaterialPageRoute(
-          builder: (_) => const SignInView(),
+          builder: (_) => BlocProvider(
+            create: (context) => SignInCubit(getIt.get<SignInRepoImp>()),
+            child: const SignInView(),
+          ),
         );
       case Routes.preSignUpScreen:
         return MaterialPageRoute(
-          builder: (_) =>  PreSignUpView(),
+          builder: (_) => PreSignUpView(),
         );
       case Routes.signUpScreen:
         return MaterialPageRoute(
-          builder: (_) =>  SignUpView(),
+          builder: (_) => const SignUpView(),
         );
       case Routes.welcomeSignUpScreen:
         return MaterialPageRoute(

@@ -1,16 +1,28 @@
 import 'package:dio/dio.dart';
 
-
-class DioHelper{
+class DioHelper {
   static late Dio dio;
 
-  static init(){
-    dio= Dio(
-        BaseOptions(
-          // baseUrl: 'https://markaz-el-amal.onrender.com/auth/patient/',
-          baseUrl: 'http://10.0.2.2:5000/auth/patient/',
-          receiveDataWhenStatusError: true,
-        )
+  static init() {
+    dio = Dio(BaseOptions(
+      baseUrl: 'http://10.0.2.2:5000/',
+      headers: {'Content-Type': 'application/json'},
+    ));
+    dio.interceptors.add(
+        LogInterceptor(requestBody: true, error: true, responseBody: true));
+  }
+
+  static Future<Response> getData({
+    required String url,
+    Map<String, dynamic>? query,
+    String? token,
+  }) async {
+    dio.options.headers = {
+      'Authorization': token ?? '',
+    };
+    return await dio.get(
+      url,
+      queryParameters: query,
     );
   }
 
@@ -18,38 +30,12 @@ class DioHelper{
     required String url,
     required Map<String, dynamic> data,
     Map<String, dynamic>? query,
-    String? token,
-    bool isFormData=false,
-  })async {
-    dio.options.headers={
-      'Authorization':token??'',
-      'Content-Type': 'application/json',
-    };
-    return dio.post(
-        url,
-        queryParameters: query,
-        data: isFormData ? FormData.fromMap(data) : data,
-
-        options: Options(
-          validateStatus: (status) => true,
-          followRedirects: false,
-        )
-    );
-  }
-
-
-  static Future<Response>  getData({
-    required String url,
-    Map<String, dynamic>? query,
-    String? token,
-  })async{
-    dio.options.headers={
-      'Authorization':token??'',
-      'Content-Type': 'application/json',
-    };
-    return await dio.get(
+    bool isFormData = false,
+  }) async {
+    return await dio.post(
       url,
-      queryParameters: query,
+      queryParameters: {'ln': 'en'},
+      data: isFormData ? FormData.fromMap(data) : data,
     );
   }
 
@@ -58,10 +44,9 @@ class DioHelper{
     Map<String, dynamic>? query,
     required Map<String, dynamic> data,
     String? token,
-  })async {
-    dio.options.headers={
-      'Authorization':token??'',
-      'Content-Type': 'application/json',
+  }) async {
+    dio.options.headers = {
+      'Authorization': token ?? '',
     };
     return dio.put(
       url,
@@ -69,6 +54,4 @@ class DioHelper{
       data: data,
     );
   }
-
-
 }

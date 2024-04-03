@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class ForgotPasswordWidget extends StatelessWidget {
   const ForgotPasswordWidget({
     super.key,
@@ -10,9 +11,7 @@ class ForgotPasswordWidget extends StatelessWidget {
     return Text(
       'Forgot password ?',
       style: TextStyle(
-          fontWeight: FontWeight.w600,
-          fontSize: 16.sp,
-          color: Colors.white),
+          fontWeight: FontWeight.w600, fontSize: 16.sp, color: Colors.white),
     );
   }
 }

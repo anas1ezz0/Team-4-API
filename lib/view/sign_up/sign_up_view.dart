@@ -4,13 +4,14 @@ import 'package:team_project/core/cubit/sign_up/sign_up/cubit.dart';
 import 'package:team_project/core/cubit/sign_up/sign_up/states.dart';
 import 'package:team_project/view/sign_up/widgets/sign_up_card.dart';
 import '../../theming/colors.dart';
-import '../sign_in/widgets/circular_white_background.dart';
-import '../sign_in/widgets/dont_have_an_account_signup.dart';
-import '../sign_in/widgets/lets_start_text_widget.dart';
+import '../sign_in/presentation/view/widgets/circular_white_background.dart';
+import '../sign_in/presentation/view/widgets/dont_have_an_account_signup.dart';
+import '../sign_in/presentation/view/widgets/lets_start_text_widget.dart';
 
 class SignUpView extends StatelessWidget {
-  SignUpView({super.key,});
-
+  const SignUpView({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

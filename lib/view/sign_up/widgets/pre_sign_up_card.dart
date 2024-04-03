@@ -1,6 +1,5 @@
 // ignore_for_file: avoid_print
 import 'dart:async';
-import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,8 +13,8 @@ import '../../../core/app_assets.dart';
 import '../../../helpers/constants.dart';
 import '../../../helpers/spacing.dart';
 import '../../../theming/colors.dart';
-import '../../sign_in/widgets/custom_button.dart';
-import '../../sign_in/widgets/markaz_alaml_text.dart';
+import '../../sign_in/presentation/view/widgets/custom_button.dart';
+import '../../sign_in/presentation/view/widgets/markaz_alaml_text.dart';
 
 class PreSignUpCard extends StatelessWidget {
   PreSignUpCard({
