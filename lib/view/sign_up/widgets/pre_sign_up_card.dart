@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,12 +10,13 @@ import 'package:team_project/core/utilts/widgets/custom_text_form_field.dart';
 import 'package:team_project/helpers/extentions.dart';
 import 'package:team_project/helpers/network/local/cache_helper.dart';
 import 'package:team_project/routing/routing.dart';
+
 import '../../../core/app_assets.dart';
 import '../../../helpers/constants.dart';
 import '../../../helpers/spacing.dart';
 import '../../../theming/colors.dart';
-import '../../sign_in/widgets/custom_button.dart';
-import '../../sign_in/widgets/markaz_alaml_text.dart';
+import '../../sign_in/presentation/widgets/custom_button.dart';
+import '../../sign_in/presentation/widgets/markaz_alaml_text.dart';
 
 class PreSignUpCard extends StatelessWidget {
   PreSignUpCard({

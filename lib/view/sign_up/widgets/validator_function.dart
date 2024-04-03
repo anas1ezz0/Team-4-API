@@ -2,7 +2,6 @@ String? validatorFunction({required String value, required String? text}) {
   if (value.isEmpty) {
     return "please enter your $text";
   }
-  return null;
 }
 
 String? passConfirmValidatorFunction(

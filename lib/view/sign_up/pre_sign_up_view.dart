@@ -4,11 +4,12 @@ import 'package:team_project/core/cubit/sign_up/pre_sign_up/cubit.dart';
 import 'package:team_project/core/cubit/sign_up/pre_sign_up/states.dart';
 import 'package:team_project/theming/colors.dart';
 import 'package:team_project/view/sign_up/widgets/pre_sign_up_card.dart';
-import '../sign_in/widgets/circular_white_background.dart';
-import '../sign_in/widgets/lets_start_text_widget.dart';
+
+import '../sign_in/presentation/widgets/circular_white_background.dart';
+import '../sign_in/presentation/widgets/lets_start_text_widget.dart';
 
 class PreSignUpView extends StatelessWidget {
-   PreSignUpView({super.key});
+  PreSignUpView({super.key});
 
   final formKey = GlobalKey<FormState>();
 
