@@ -13,18 +13,28 @@ import '../../../routing/routing.dart';
 import '../../../theming/colors.dart';
 import '../../sign_in/presentation/view/widgets/custom_button.dart';
 
-class SignUnCard extends StatelessWidget {
-  SignUnCard({
+class SignUnCard extends StatefulWidget {
+  const SignUnCard({
     super.key,
   });
 
+  @override
+  State<SignUnCard> createState() => _SignUnCardState();
+}
+
+class _SignUnCardState extends State<SignUnCard> {
   final formKey = GlobalKey<FormState>();
 
   final nameController = TextEditingController();
+
   final phoneController = TextEditingController();
+
   final otpController = TextEditingController();
+
   final passwordController = TextEditingController();
+
   final confirmPasswordController = TextEditingController();
+
   final emailController = TextEditingController();
 
   @override
@@ -126,20 +136,20 @@ class SignUnCard extends StatelessWidget {
                       ),
                       verticalSpace(16),
                       AppTextFormField(
-                          controller: passwordController,
-                          type: TextInputType.visiblePassword,
-                          hintText: 'Password',
                           prefixIcon: Icon(
                             Icons.lock_outline_rounded,
                             color: AppColor.secondaryColor,
                           ),
+                          type: TextInputType.visiblePassword,
+                          hintText: 'Password',
+                          controller: passwordController,
+                          isObscureText: cubit.obSecureText,
                           suffixIcon: IconButton(
                             onPressed: () {
                               cubit.changePasswordVisibility();
                             },
                             icon: cubit.suffixIcon,
                           ),
-                          isObscureText: cubit.obSecureText,
                           validator: (String? value) {
                             if (value!.isEmpty) {
                               return "please enter your password";

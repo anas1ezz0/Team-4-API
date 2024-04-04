@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:team_project/helpers/extentions.dart';
+import 'package:team_project/helpers/network/local/cache_helper.dart';
 import '../../../../routing/routing.dart';
 
 class OnBoardingHeader extends StatelessWidget {
@@ -22,7 +23,12 @@ class OnBoardingHeader extends StatelessWidget {
           padding: const EdgeInsets.only(right: 10.0),
           child: GestureDetector(
             onTap: () {
-              context.pushReplacementNamed(Routes.signInScreen);
+              CacheHelper.saveData(key: 'onBoarding', value: true)
+                  .then((value) {
+                if (value) {
+                  context.pushReplacementNamed(Routes.signInScreen);
+                }
+              });
             },
             child: const Text(
               'Skip',

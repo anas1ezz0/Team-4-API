@@ -12,36 +12,33 @@ class AppTextFormField extends StatelessWidget {
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
   final Color? backgroundColor;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final TextInputType type;
   final String? Function(String?) validator;
 
   final Function(String)? onSubmit;
 
-  const AppTextFormField({
-    super.key,
-    required this.hintText,
-    this.inputTextStyle,
-    this.hintStyle,
-    this.isObscureText,
-    this.suffixIcon,
-    this.focusedBorder,
-    this.enabledBorder,
-    this.backgroundColor,
-    this.prefixIcon,
-    required this.controller,
-    required this.type,
-    required this.validator,
-    this.suffixPressed,
-    this.onSubmit
-  });
+  const AppTextFormField(
+      {super.key,
+      required this.hintText,
+      this.inputTextStyle,
+      this.hintStyle,
+      this.isObscureText,
+      this.suffixIcon,
+      this.focusedBorder,
+      this.enabledBorder,
+      this.backgroundColor,
+      this.prefixIcon,
+      this.controller,
+      required this.type,
+      required this.validator,
+      this.suffixPressed,
+      this.onSubmit});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: TextStyle(
-        color: AppColor.secondaryColor
-      ),
+      style: TextStyle(color: AppColor.secondaryColor),
       controller: controller,
       keyboardType: type,
       validator: validator,
@@ -49,10 +46,11 @@ class AppTextFormField extends StatelessWidget {
       onFieldSubmitted: onSubmit,
       decoration: InputDecoration(
         // labelText: hintText,
-        contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10.0),
+        contentPadding:
+            const EdgeInsets.symmetric(vertical: 15, horizontal: 10.0),
         prefixIcon: prefixIcon,
         hintText: hintText,
-        hintStyle: hintStyle ??  TextStyle(color: AppColor.secondaryColor),
+        hintStyle: hintStyle ?? TextStyle(color: AppColor.secondaryColor),
         suffixIcon: suffixIcon,
         enabledBorder: enabledBorder ??
             OutlineInputBorder(
