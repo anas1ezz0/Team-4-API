@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:team_project/helpers/network/local/cache_helper.dart';
 import 'package:team_project/helpers/spacing.dart';
 import 'package:team_project/theming/colors.dart';
 
@@ -46,7 +47,10 @@ class CustomHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              CacheHelper.removeData(key: "onBoarding");
+              CacheHelper.removeData(key: "token");
+            },
             icon: const Icon(
               size: 20,
               Icons.messenger_outline_sharp,

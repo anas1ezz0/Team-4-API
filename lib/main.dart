@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,7 +8,6 @@ import 'package:team_project/core/di/service_locator.dart';
 import 'package:team_project/routing/app_routes.dart';
 import 'package:team_project/routing/routing.dart';
 import 'package:team_project/theming/colors.dart';
-
 import 'core/bloc_abserver.dart';
 import 'helpers/constants.dart';
 import 'helpers/network/local/cache_helper.dart';
@@ -21,22 +22,38 @@ void main() async {
   await CacheHelper.init();
 
   token = CacheHelper.getData(key: 'token');
-  bool onBoarding = CacheHelper.getData(key: 'onBoarding');
-  print(onBoarding);
+  bool? onBoarding = CacheHelper.getData(key: 'onBoarding');
+  print("onBoarding value : $onBoarding");
+
+  String startWidget;
+  if(onBoarding != null){
+    if(token != null){
+      startWidget = Routes.mainScreens;
+    }
+    else{
+      startWidget = Routes.signInScreen;
+    }
+  }
+  else{
+    startWidget = Routes.onBoardingScreen;
+  }
 
   runApp(MyApp(
     appRouter: AppRouter(),
-    onBoarding: onBoarding,
+    startWidget: startWidget,
+    // onBoarding: onBoarding,
   ));
 }
 
 class MyApp extends StatelessWidget {
-  final bool onBoarding;
+  // final bool? onBoarding;
   final AppRouter appRouter;
-  const MyApp({
+  final String startWidget;
+   const MyApp({
     super.key,
     required this.appRouter,
-    required this.onBoarding,
+     required this.startWidget,
+    // required this.onBoarding,
   });
 
   // This widget is the root of your application.
@@ -54,8 +71,7 @@ class MyApp extends StatelessWidget {
           primaryColor: AppColor.mainColor,
           useMaterial3: true,
         ),
-        initialRoute:
-            onBoarding ? Routes.signInScreen : Routes.onBoardingScreen,
+        initialRoute:startWidget,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );

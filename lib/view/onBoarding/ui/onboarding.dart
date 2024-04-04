@@ -6,7 +6,7 @@ import 'package:team_project/helpers/network/local/cache_helper.dart';
 import 'package:team_project/routing/routing.dart';
 import 'package:team_project/theming/colors.dart';
 import 'package:team_project/view/onBoarding/model/onboarding_model.dart';
-import 'package:team_project/view/onBoarding/ui/widgets/onBoarding_Header.dart';
+import 'package:team_project/view/onBoarding/ui/widgets/onboarding_header.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});
