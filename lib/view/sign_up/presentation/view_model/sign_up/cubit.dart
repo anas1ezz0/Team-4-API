@@ -1,18 +1,15 @@
 // ignore_for_file: avoid_print
 
-import 'dart:convert';
-import 'dart:io';
-import 'dart:typed_data';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:team_project/core/cubit/end_points.dart';
-import 'package:team_project/core/cubit/sign_up/sign_up/states.dart';
-import 'package:team_project/models/sign_up_models/sign_up_model.dart';
-import '../../../../helpers/constants.dart';
-import '../../../../helpers/network/remote/dio_helper.dart';
+import 'package:team_project/view/sign_up/presentation/view_model/sign_up/states.dart';
+import '../../../../../helpers/constants.dart';
+import '../../../../../helpers/network/remote/dio_helper.dart';
+import '../../../data/models/sign_up_model.dart';
+
 
 class SignUpCubit extends Cubit<SignUpStates> {
   SignUpCubit() : super(SignUpInitialState());

@@ -3,28 +3,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:team_project/core/cubit/sign_up/sign_up/cubit.dart';
-import 'package:team_project/core/cubit/sign_up/sign_up/states.dart';
 import 'package:team_project/core/utilts/widgets/custom_text_form_field.dart';
 import 'package:team_project/helpers/extentions.dart';
-import 'package:team_project/view/sign_up/widgets/upload_profile_image.dart';
-import '../../../helpers/spacing.dart';
-import '../../../routing/routing.dart';
-import '../../../theming/colors.dart';
-import '../../sign_in/presentation/view/widgets/custom_button.dart';
+import 'package:team_project/view/sign_up/presentation/view/widgets/upload_profile_image.dart';
+import '../../../../../helpers/spacing.dart';
+import '../../../../../routing/routing.dart';
+import '../../../../../theming/colors.dart';
+import '../../../../sign_in/presentation/view/widgets/custom_button.dart';
+import '../../view_model/sign_up/cubit.dart';
+import '../../view_model/sign_up/states.dart';
 
-class SignUnCard extends StatelessWidget {
-  SignUnCard({
+
+class SignUnCard extends StatefulWidget {
+  const SignUnCard({
     super.key,
   });
 
+  @override
+  State<SignUnCard> createState() => _SignUnCardState();
+}
+
+class _SignUnCardState extends State<SignUnCard> {
   final formKey = GlobalKey<FormState>();
 
   final nameController = TextEditingController();
+
   final phoneController = TextEditingController();
+
   final otpController = TextEditingController();
+
   final passwordController = TextEditingController();
+
   final confirmPasswordController = TextEditingController();
+
   final emailController = TextEditingController();
 
   @override
@@ -126,20 +137,20 @@ class SignUnCard extends StatelessWidget {
                       ),
                       verticalSpace(16),
                       AppTextFormField(
-                          controller: passwordController,
-                          type: TextInputType.visiblePassword,
-                          hintText: 'Password',
                           prefixIcon: Icon(
                             Icons.lock_outline_rounded,
                             color: AppColor.secondaryColor,
                           ),
+                          type: TextInputType.visiblePassword,
+                          hintText: 'Password',
+                          controller: passwordController,
+                          isObscureText: cubit.obSecureText,
                           suffixIcon: IconButton(
                             onPressed: () {
                               cubit.changePasswordVisibility();
                             },
                             icon: cubit.suffixIcon,
                           ),
-                          isObscureText: cubit.obSecureText,
                           validator: (String? value) {
                             if (value!.isEmpty) {
                               return "please enter your password";

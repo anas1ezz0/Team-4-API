@@ -1,10 +1,10 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:team_project/core/cubit/sign_up/pre_sign_up/states.dart';
 import 'package:team_project/helpers/network/remote/dio_helper.dart';
-import 'package:team_project/models/sign_up_models/pre_signup_model.dart';
-import '../../end_points.dart';
+import 'package:team_project/view/sign_up/presentation/view_model/pre_sign_up/states.dart';
+import '../../../../../core/cubit/end_points.dart';
+import '../../../data/models/pre_signup_model.dart';
 
 class PreSignUpCubit extends Cubit<PreSignUpStates> {
   PreSignUpCubit() : super(PreSignUpInitialState());

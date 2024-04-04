@@ -9,9 +9,10 @@ import 'package:team_project/view/sign_in/presentation/view_model/sign_in_cubit.
 import 'package:team_project/view/sign_in/sign_in_view.dart';
 import '../view/all_screens.dart';
 import '../view/sign_in/data/repos/sign_in_repo_imp.dart';
-import '../view/sign_up/pre_sign_up_view.dart';
-import '../view/sign_up/sign_up_view.dart';
-import '../view/sign_up/welcome_page_view.dart';
+import '../view/sign_up/presentation/view/pre_sign_up_view.dart';
+import '../view/sign_up/presentation/view/sign_up_view.dart';
+import '../view/sign_up/presentation/view/welcome_page_view.dart';
+
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {

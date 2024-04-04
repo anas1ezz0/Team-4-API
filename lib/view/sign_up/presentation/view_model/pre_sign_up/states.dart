@@ -1,4 +1,5 @@
-import 'package:team_project/models/sign_up_models/pre_signup_model.dart';
+
+import '../../../data/models/pre_signup_model.dart';
 
 abstract class PreSignUpStates {}
 

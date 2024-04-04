@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:team_project/core/cubit/sign_up/sign_up/cubit.dart';
-import 'package:team_project/core/cubit/sign_up/sign_up/states.dart';
+import '../../view_model/sign_up/cubit.dart';
+import '../../view_model/sign_up/states.dart';
 
 class UploadUserProfilePic extends StatelessWidget {
   const UploadUserProfilePic({super.key});

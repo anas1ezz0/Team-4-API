@@ -21,15 +21,23 @@ void main() async {
   await CacheHelper.init();
 
   token = CacheHelper.getData(key: 'token');
+  bool onBoarding = CacheHelper.getData(key: 'onBoarding');
+  print(onBoarding);
 
   runApp(MyApp(
     appRouter: AppRouter(),
+    onBoarding: onBoarding,
   ));
 }
 
 class MyApp extends StatelessWidget {
+  final bool onBoarding;
   final AppRouter appRouter;
-  const MyApp({super.key, required this.appRouter});
+  const MyApp({
+    super.key,
+    required this.appRouter,
+    required this.onBoarding,
+  });
 
   // This widget is the root of your application.
   @override
@@ -46,7 +54,8 @@ class MyApp extends StatelessWidget {
           primaryColor: AppColor.mainColor,
           useMaterial3: true,
         ),
-        initialRoute: Routes.onBoardingScreen,
+        initialRoute:
+            onBoarding ? Routes.signInScreen : Routes.onBoardingScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:team_project/helpers/extentions.dart';
+import 'package:team_project/helpers/network/local/cache_helper.dart';
 import 'package:team_project/routing/routing.dart';
 import 'package:team_project/theming/colors.dart';
 import 'package:team_project/view/onBoarding/model/onboarding_model.dart';
@@ -99,8 +100,14 @@ class _OnBoardingState extends State<OnBoarding> {
                             ),
                             onPressed: () {
                               if (isLast) {
-                                context
-                                    .pushReplacementNamed(Routes.signInScreen);
+                                CacheHelper.saveData(
+                                        key: 'onBoarding', value: true)
+                                    .then((value) {
+                                  if (value) {
+                                    context.pushReplacementNamed(
+                                        Routes.signInScreen);
+                                  }
+                                });
                               } else {
                                 boardingController.nextPage(
                                   duration: const Duration(milliseconds: 400),
