@@ -6,6 +6,7 @@ import 'package:team_project/core/cubit/app_cubit.dart';
 import 'package:team_project/core/di/service_locator.dart';
 import 'package:team_project/routing/routing.dart';
 import 'package:team_project/view/category_page/categories_page.dart';
+import 'package:team_project/view/history/history_screen.dart';
 import 'package:team_project/view/home_page/ui/home_page.dart';
 import 'package:team_project/view/onBoarding/ui/onboarding.dart';
 import 'package:team_project/view/payment_option/ui/payment_option_screen.dart';
@@ -68,6 +69,10 @@ class AppRouter {
       case Routes.successAppointmentScreen:
         return MaterialPageRoute(
           builder: (_) => const SuccessAppointmentScreen(),
+        );
+      case Routes.historyScreen:
+        return MaterialPageRoute(
+          builder: (_) => const HistoryScreen(),
         );
 
       default:
