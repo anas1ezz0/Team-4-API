@@ -5,8 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team_project/core/cubit/app_cubit.dart';
 import 'package:team_project/core/di/service_locator.dart';
 import 'package:team_project/routing/routing.dart';
+import 'package:team_project/view/category_page/categories_page.dart';
 import 'package:team_project/view/home_page/ui/home_page.dart';
 import 'package:team_project/view/onBoarding/ui/onboarding.dart';
+import 'package:team_project/view/payment_option/ui/payment_option_screen.dart';
+import 'package:team_project/view/payment_option/ui/succes_appointment_screen.dart';
 import 'package:team_project/view/sign_in/presentation/view_model/sign_in_cubit.dart';
 import 'package:team_project/view/sign_in/sign_in_view.dart';
 import '../view/all_screens.dart';
@@ -43,7 +46,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const WelcomeSignUpPageView(),
         );
-      case Routes.mainScreens:
+      case Routes.allScreens:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => AppCubit(),
@@ -53,6 +56,18 @@ class AppRouter {
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomePage(),
+        );
+      case Routes.categoriesScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CategorieScreen(),
+        );
+      case Routes.paymentOptionScreen:
+        return MaterialPageRoute(
+          builder: (_) => const PaymentOptionScreen(),
+        );
+      case Routes.successAppointmentScreen:
+        return MaterialPageRoute(
+          builder: (_) => const SuccessAppointmentScreen(),
         );
 
       default:

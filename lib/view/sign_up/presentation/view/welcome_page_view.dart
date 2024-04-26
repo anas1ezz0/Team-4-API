@@ -17,7 +17,7 @@ class _WelcomeSignUpPageViewState extends State<WelcomeSignUpPageView> {
   @override
   void initState() {
     Timer(const Duration(seconds: 2), () {
-      context.pushReplacementNamed(Routes.mainScreens);
+      context.pushReplacementNamed(Routes.allScreens);
     });
     super.initState();
   }

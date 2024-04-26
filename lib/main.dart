@@ -28,7 +28,7 @@ void main() async {
   String startWidget;
   if (onBoarding != null) {
     if (token != null) {
-      startWidget = Routes.mainScreens;
+      startWidget = Routes.allScreens;
     } else {
       startWidget = Routes.signInScreen;
     }
@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
           primaryColor: AppColor.mainColor,
           useMaterial3: true,
         ),
-        initialRoute: Routes.mainScreens,
+        initialRoute: Routes.paymentOptionScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );

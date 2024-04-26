@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:team_project/helpers/extentions.dart';
 import 'package:team_project/theming/colors.dart';
 import 'package:team_project/view/home_page/model/home_page_category_model.dart';
 
-class CategoriesPage extends StatefulWidget {
-  const CategoriesPage({super.key});
+class CategorieScreen extends StatefulWidget {
+  const CategorieScreen({super.key});
 
   @override
-  State<CategoriesPage> createState() => _CategoriesPageState();
+  State<CategorieScreen> createState() => _CategorieScreenState();
 }
 
 List<CategoryPageModel> categoryListHere = [
@@ -36,14 +37,14 @@ List<CategoryPageModel> categoryListHere = [
   ),
 ];
 
-class _CategoriesPageState extends State<CategoriesPage> {
+class _CategorieScreenState extends State<CategorieScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              context.pop();
             },
             icon: const Icon(
               Icons.arrow_back_ios_new,
@@ -102,7 +103,6 @@ class CategoryPageItem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 10.0, right: 10, left: 10),
             child: Image.asset(
-              // 'assets/images/speach.png',
               categoryList.image,
             ),
           ),
@@ -114,7 +114,6 @@ class CategoryPageItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  // 'speach',
                   categoryList.name,
                   maxLines: 2,
                   textAlign: TextAlign.center,
@@ -131,14 +130,6 @@ class CategoryPageItem extends StatelessWidget {
               ],
             ),
           ),
-          // const Padding(
-          //   padding: EdgeInsets.only(left: 120.0),
-          //   child: Icon(
-          //     Icons.chevron_right,
-          //     color: Colors.white,
-          //     size: 37,
-          //   ),
-          // ),
         ],
       ),
     );

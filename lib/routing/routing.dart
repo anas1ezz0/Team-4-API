@@ -4,9 +4,11 @@ class Routes {
   static const String preSignUpScreen = 'preSignUpScreen';
   static const String signUpScreen = 'signUpScreen';
   static const String welcomeSignUpScreen = 'welcomeSignUpScreen';
-  static const String mainScreens = 'mainScreens';
+  static const String allScreens = 'allScreens';
   static const String homeScreen = 'homeScreen';
   static const String categoriesScreen = 'categoriesScreen';
   static const String bookScreen = 'bookScreen';
   static const String profileScreen = 'profileScreen';
+  static const String paymentOptionScreen = 'paymentOptionScreen';
+  static const String successAppointmentScreen = 'successAppointmentScreen';
 }
