@@ -15,7 +15,7 @@ class TextFormAndSettingsIcon extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 24),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
             child: AppTextFormField(
@@ -26,7 +26,7 @@ class TextFormAndSettingsIcon extends StatelessWidget {
                 color: AppColor.textColor,
               ),
               hintStyle: const TextStyle(color: Colors.black),
-              type: TextInputType.text,
+              type: TextInputType.emailAddress,
               controller: TextEditingController(),
               validator: (value) {
                 if (value == null || value.isEmpty) {

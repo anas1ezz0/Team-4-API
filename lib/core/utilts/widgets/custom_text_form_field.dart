@@ -38,7 +38,7 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: TextStyle(color: AppColor.secondaryColor),
+      style: const TextStyle(color: Colors.black),
       controller: controller,
       keyboardType: type,
       validator: validator,

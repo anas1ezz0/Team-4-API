@@ -8,7 +8,7 @@ class BookPage extends StatelessWidget {
     return const Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Center(child: Text('Book Page')),
+        Center(),
       ],
     );
   }

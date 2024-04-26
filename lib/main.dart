@@ -26,15 +26,13 @@ void main() async {
   print("onBoarding value : $onBoarding");
 
   String startWidget;
-  if(onBoarding != null){
-    if(token != null){
+  if (onBoarding != null) {
+    if (token != null) {
       startWidget = Routes.mainScreens;
-    }
-    else{
+    } else {
       startWidget = Routes.signInScreen;
     }
-  }
-  else{
+  } else {
     startWidget = Routes.onBoardingScreen;
   }
 
@@ -49,10 +47,10 @@ class MyApp extends StatelessWidget {
   // final bool? onBoarding;
   final AppRouter appRouter;
   final String startWidget;
-   const MyApp({
+  const MyApp({
     super.key,
     required this.appRouter,
-     required this.startWidget,
+    required this.startWidget,
     // required this.onBoarding,
   });
 
@@ -71,7 +69,7 @@ class MyApp extends StatelessWidget {
           primaryColor: AppColor.mainColor,
           useMaterial3: true,
         ),
-        initialRoute:startWidget,
+        initialRoute: Routes.mainScreens,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );

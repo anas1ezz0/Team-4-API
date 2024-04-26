@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:team_project/theming/colors.dart';
+import 'package:team_project/view/home_page/model/home_page_category_model.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({
     super.key,
+    required this.categoryList,
   });
-
+  final HomePageCategoryModel categoryList;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,11 +17,11 @@ class CategoryItem extends StatelessWidget {
           color: AppColor.mainColor,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: const Padding(
-          padding: EdgeInsets.all(15.0),
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
           child: Text(
-            'Speech',
-            style: TextStyle(color: Colors.white, fontSize: 22),
+            categoryList.name,
+            style: const TextStyle(color: Colors.white, fontSize: 22),
           ),
         ),
       ),

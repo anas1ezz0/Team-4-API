@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:team_project/view/home_page/widgets/doctors_item.dart';
+import 'package:team_project/view/home_page/ui/widgets/doctors_item.dart';
 
 class DoctorItemListView extends StatelessWidget {
   const DoctorItemListView({super.key});

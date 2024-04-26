@@ -3,7 +3,7 @@ import 'package:team_project/helpers/network/local/cache_helper.dart';
 import 'package:team_project/helpers/spacing.dart';
 import 'package:team_project/theming/colors.dart';
 
-import '../../../core/app_assets.dart';
+import '../../../../core/app_assets.dart';
 
 class CustomHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomHomeAppBar({

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team_project/view/book_page/book_page.dart';
 import 'package:team_project/view/category_page/categories_page.dart';
-import 'package:team_project/view/home_page/home_page.dart';
+import 'package:team_project/view/home_page/ui/home_page.dart';
 import 'package:team_project/view/profile_page/profile_page.dart';
 part 'app_state.dart';
 
