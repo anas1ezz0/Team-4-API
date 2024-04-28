@@ -54,6 +54,9 @@ class PaymentOptionScreen extends StatelessWidget {
               const CashPaymentContainer(),
               verticalSpace(40),
               CustomBotton(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                horizontal: 30,
                 text: 'Done',
                 textColor: AppColor.secondaryColor,
                 color: AppColor.mainColor,

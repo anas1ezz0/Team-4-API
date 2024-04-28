@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
           primaryColor: AppColor.mainColor,
           useMaterial3: true,
         ),
-        initialRoute: Routes.historyScreen,
+        initialRoute: Routes.privacyScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );

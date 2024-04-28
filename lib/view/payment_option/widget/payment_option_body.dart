@@ -133,11 +133,17 @@ class CustomBotton extends StatelessWidget {
       required this.text,
       required this.color,
       required this.textColor,
-      this.onTap});
+      this.onTap,
+      required this.horizontal,
+      this.fontWeight,
+      this.fontSize});
   final String text;
   final Color color;
   final Color textColor;
   final void Function()? onTap;
+  final double horizontal;
+  final double? fontSize;
+  final FontWeight? fontWeight;
 
   @override
   Widget build(BuildContext context) {
@@ -150,11 +156,11 @@ class CustomBotton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 40),
+            padding: EdgeInsets.symmetric(vertical: 5, horizontal: horizontal),
             child: Text(
               text,
               style: TextStyle(
-                  fontWeight: FontWeight.bold, color: textColor, fontSize: 20),
+                  fontWeight: fontWeight, color: textColor, fontSize: fontSize),
             ),
           ),
         ),

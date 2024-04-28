@@ -39,6 +39,7 @@ class SuccessAppointmentScreen extends StatelessWidget {
         ),
         verticalSpace(100),
         CustomBotton(
+          horizontal: 30,
           text: 'Back',
           textColor: AppColor.secondaryColor,
           color: AppColor.mainColor,

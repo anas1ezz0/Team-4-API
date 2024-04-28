@@ -11,6 +11,7 @@ import 'package:team_project/view/home_page/ui/home_page.dart';
 import 'package:team_project/view/onBoarding/ui/onboarding.dart';
 import 'package:team_project/view/payment_option/ui/payment_option_screen.dart';
 import 'package:team_project/view/payment_option/ui/succes_appointment_screen.dart';
+import 'package:team_project/view/praivce/privacy_screen.dart';
 import 'package:team_project/view/sign_in/presentation/view_model/sign_in_cubit.dart';
 import 'package:team_project/view/sign_in/sign_in_view.dart';
 import '../view/all_screens.dart';
@@ -73,6 +74,10 @@ class AppRouter {
       case Routes.historyScreen:
         return MaterialPageRoute(
           builder: (_) => const HistoryScreen(),
+        );
+      case Routes.privacyScreen:
+        return MaterialPageRoute(
+          builder: (_) => const PrivacyScreen(),
         );
 
       default:
