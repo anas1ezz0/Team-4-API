@@ -3,11 +3,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:team_project/core/di/service_locator.dart';
 import 'package:team_project/routing/app_routes.dart';
 import 'package:team_project/routing/routing.dart';
 import 'package:team_project/theming/colors.dart';
+import 'package:team_project/view/doctors_category/presentation/view_model/doctorcategory_cubit.dart';
 import 'core/bloc_abserver.dart';
 import 'helpers/constants.dart';
 import 'helpers/network/local/cache_helper.dart';
@@ -47,6 +49,7 @@ class MyApp extends StatelessWidget {
   // final bool? onBoarding;
   final AppRouter appRouter;
   final String startWidget;
+
   const MyApp({
     super.key,
     required this.appRouter,
@@ -63,14 +66,17 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(428, 926),
       minTextAdapt: true,
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primaryColor: AppColor.mainColor,
-          useMaterial3: true,
+      child: BlocProvider(
+        create: (context) => DoctorCategoryCubit(),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primaryColor: AppColor.mainColor,
+            useMaterial3: true,
+          ),
+          initialRoute: Routes.allScreens,
+          onGenerateRoute: appRouter.generateRoute,
         ),
-        initialRoute: Routes.historyScreen,
-        onGenerateRoute: appRouter.generateRoute,
       ),
     );
   }

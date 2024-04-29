@@ -3,6 +3,8 @@ import 'package:team_project/helpers/extentions.dart';
 import 'package:team_project/theming/colors.dart';
 import 'package:team_project/view/home_page/model/home_page_category_model.dart';
 
+import '../../routing/routing.dart';
+
 class CategorieScreen extends StatefulWidget {
   const CategorieScreen({super.key});
 
@@ -73,8 +75,13 @@ class _CategorieScreenState extends State<CategorieScreen> {
                             crossAxisCount: 2,
                             childAspectRatio: 1 / 1.06),
                     itemBuilder: (context, index) {
-                      return CategoryPageItem(
-                          categoryList: categoryListHere[index]);
+                      return GestureDetector(
+                        onTap: () {
+                          context.pushNamed(Routes.doctorsCategoryScreen);
+                        },
+                        child: CategoryPageItem(
+                            categoryList: categoryListHere[index]),
+                      );
                     }),
               ),
             )

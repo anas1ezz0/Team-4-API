@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:team_project/view/book_page/book_page.dart';
 import 'package:team_project/view/category_page/categories_page.dart';
 import 'package:team_project/view/home_page/ui/home_page.dart';
 import 'package:team_project/view/profile_page/profile_page.dart';
+import 'package:team_project/view/select_date_and_time/presentation/view/select_and_time_view.dart';
 part 'app_state.dart';
 
 class AppCubit extends Cubit<AppState> {
@@ -13,7 +13,7 @@ class AppCubit extends Cubit<AppState> {
   List<Widget> screens = [
     const HomePage(),
     const CategorieScreen(),
-    const BookPage(),
+    const SelectDateAndTimeView(),
     const ProfilePage(),
   ];
   void changeButtonNavBar(int index) {

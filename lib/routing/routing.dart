@@ -12,4 +12,8 @@ class Routes {
   static const String paymentOptionScreen = 'paymentOptionScreen';
   static const String successAppointmentScreen = 'successAppointmentScreen';
   static const String historyScreen = 'historyScreen';
+  static const String doctorsCategoryScreen = 'doctorsCategoryScreen';
+  static const String dateAndTimeScreen = 'dateAndTimeScreen';
+  static const String profileDetailsScreen = 'profileDetailsScreen';
+  static const String editProfileScreen = 'editProfileScreen';
 }
