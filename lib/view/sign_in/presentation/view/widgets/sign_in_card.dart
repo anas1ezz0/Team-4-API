@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:team_project/core/utilts/widgets/custom_text_form_field.dart';
 import 'package:team_project/helpers/extentions.dart';
 import 'package:team_project/routing/routing.dart';
-import '../../../../../core/app_assets.dart';
+import '../../../../../generated/app_assets.dart';
 import '../../../../../helpers/spacing.dart';
 import '../../../../../theming/colors.dart';
 import '../../view_model/sign_in_cubit.dart';
@@ -101,7 +101,7 @@ class SignInCard extends StatelessWidget {
                         SnackBar(content: Text(state.errorMessage)),
                       );
                     } else if (state is SignInSuccess) {
-                      context.pushNamed(Routes.homeScreen);
+                      context.pushReplacementNamed(Routes.allScreens);
                     }
                   },
                   builder: (context, state) {

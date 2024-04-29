@@ -16,4 +16,6 @@ class Routes {
   static const String dateAndTimeScreen = 'dateAndTimeScreen';
   static const String profileDetailsScreen = 'profileDetailsScreen';
   static const String editProfileScreen = 'editProfileScreen';
+  static const String privacyScreen = 'privacyScreen';
+  static const String doctorProfileView = 'doctorProfileView';
 }

@@ -40,7 +40,8 @@ class SignUpView extends StatelessWidget {
                         haveAccountOrNot: 'Already',
                       ))
                 ],
-              ));
+              )
+          );
         },
       ),
     );

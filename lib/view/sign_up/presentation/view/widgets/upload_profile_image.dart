@@ -42,7 +42,6 @@ class UploadUserProfilePic extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                // cubit.addImage();
                 ImagePicker().pickImage(source: ImageSource.gallery)
                     .then((value) => cubit.uploadProfilePic(value!));
               },

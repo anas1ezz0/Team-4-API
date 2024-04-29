@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:team_project/core/app_assets.dart';
+
+import '../../../../generated/app_assets.dart';
 
 class HomePageImageHeader extends StatelessWidget {
   const HomePageImageHeader({
@@ -11,7 +12,7 @@ class HomePageImageHeader extends StatelessWidget {
     return SizedBox(
       height: 150,
       child: Image.asset(
-        AppAssets.homePageHeaderImage,
+        AppAssets.homeHeaderImage,
       ),
     );
   }

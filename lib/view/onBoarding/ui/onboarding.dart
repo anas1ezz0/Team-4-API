@@ -19,19 +19,19 @@ class _OnBoardingState extends State<OnBoarding> {
   var boardingController = PageController();
   List<OnboardingModel> onBoardingList = [
     OnboardingModel(
-      image: 'assets/images/select doctor 1.png',
+      image: 'assets/images/select_doctor1.png',
       title: 'Choose your doctor',
       description:
           'Application provide you with alot of experienced doctors you can see these profile and choose one you want to appointment with him.',
     ),
     OnboardingModel(
-      image: 'assets/images/date 1.png',
+      image: 'assets/images/date_1.png',
       title: 'Choose date and time',
       description:
           'The application can help you choose the appropriate date and time for you and the selected doctor.',
     ),
     OnboardingModel(
-      image: 'assets/images/select doc 1.png',
+      image: 'assets/images/select_doc1.png',
       title: 'Communicate with your doctor',
       description:
           'Once you access the profile of doctoryou selected you can communicate with him and send any message ',
