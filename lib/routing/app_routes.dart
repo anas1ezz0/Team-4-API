@@ -13,6 +13,7 @@ import 'package:team_project/view/home_page/ui/home_page.dart';
 import 'package:team_project/view/onBoarding/ui/onboarding.dart';
 import 'package:team_project/view/payment_option/ui/payment_option_screen.dart';
 import 'package:team_project/view/payment_option/ui/succes_appointment_screen.dart';
+import 'package:team_project/view/praivce/privacy_screen.dart';
 import 'package:team_project/view/profile_details/presentation/profile_details_view.dart';
 import 'package:team_project/view/select_date_and_time/presentation/view/select_and_time_view.dart';
 import 'package:team_project/view/sign_in/presentation/view_model/sign_in_cubit.dart';
@@ -88,6 +89,10 @@ class AppRouter {
             builder: (context) => const ProfileDetailsView());
       case Routes.editProfileScreen:
         return MaterialPageRoute(builder: (context) => const EditProfileView());
+
+      case Routes.privacyScreen:
+        return MaterialPageRoute(builder: (context) => const PrivacyScreen());
+
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
