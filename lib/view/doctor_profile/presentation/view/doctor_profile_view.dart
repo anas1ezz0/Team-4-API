@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:team_project/helpers/extentions.dart';
-import 'package:team_project/routing/routing.dart';
 import 'package:team_project/theming/colors.dart';
 import 'package:team_project/view/doctor_profile/presentation/view/widgets/doctor_experience_text.dart';
 import 'package:team_project/view/doctor_profile/presentation/view/widgets/doctor_info_container.dart';

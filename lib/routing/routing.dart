@@ -18,4 +18,5 @@ class Routes {
   static const String editProfileScreen = 'editProfileScreen';
   static const String privacyScreen = 'privacyScreen';
   static const String doctorProfileView = 'doctorProfileView';
+  static const String settingsScreen = 'settingsScreen';
 }

@@ -16,6 +16,7 @@ import 'package:team_project/view/payment_option/ui/succes_appointment_screen.da
 import 'package:team_project/view/praivce/privacy_screen.dart';
 import 'package:team_project/view/profile_details/presentation/profile_details_view.dart';
 import 'package:team_project/view/select_date_and_time/presentation/view/select_and_time_view.dart';
+import 'package:team_project/view/settings_page/ui/settings_screen.dart';
 import 'package:team_project/view/sign_in/presentation/view_model/sign_in_cubit.dart';
 import 'package:team_project/view/sign_in/sign_in_view.dart';
 import '../view/all_screens.dart';
@@ -64,7 +65,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const HomePage(),
         );
-        case Routes.doctorProfileView:
+      case Routes.doctorProfileView:
         return MaterialPageRoute(
           builder: (_) => const DoctorProfileView(),
         );
@@ -85,18 +86,30 @@ class AppRouter {
           builder: (_) => const HistoryScreen(),
         );
       case Routes.doctorsCategoryScreen:
-        return MaterialPageRoute(builder: (_) => const DoctorsCategoryView());
+        return MaterialPageRoute(
+          builder: (_) => const DoctorsCategoryView(),
+        );
       case Routes.dateAndTimeScreen:
         return MaterialPageRoute(
-            builder: (context) => const SelectDateAndTimeView());
+          builder: (context) => const SelectDateAndTimeView(),
+        );
       case Routes.profileDetailsScreen:
         return MaterialPageRoute(
-            builder: (context) => const ProfileDetailsView());
+          builder: (context) => const ProfileDetailsView(),
+        );
       case Routes.editProfileScreen:
-        return MaterialPageRoute(builder: (context) => const EditProfileView());
+        return MaterialPageRoute(
+          builder: (context) => const EditProfileView(),
+        );
 
       case Routes.privacyScreen:
-        return MaterialPageRoute(builder: (context) => const PrivacyScreen());
+        return MaterialPageRoute(
+          builder: (context) => const PrivacyScreen(),
+        );
+      case Routes.settingsScreen:
+        return MaterialPageRoute(
+          builder: (context) => const SettingsScreen(),
+        );
 
       default:
         return MaterialPageRoute(

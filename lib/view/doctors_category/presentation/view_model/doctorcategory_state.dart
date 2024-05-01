@@ -1,6 +1,6 @@
 part of 'doctorcategory_cubit.dart';
 
-@immutable
+// @immutable
 abstract class DoctorCategoryState {}
 
 class DoctorCategoryInitial extends DoctorCategoryState {}

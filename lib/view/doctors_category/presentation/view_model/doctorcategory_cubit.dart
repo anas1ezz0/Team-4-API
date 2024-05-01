@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 part 'doctorcategory_state.dart';
 
 class DoctorCategoryCubit extends Cubit<DoctorCategoryState> {

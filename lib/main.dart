@@ -1,6 +1,5 @@
 // ignore_for_file: avoid_print
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,12 +40,10 @@ void main() async {
   runApp(MyApp(
     appRouter: AppRouter(),
     startWidget: startWidget,
-    // onBoarding: onBoarding,
   ));
 }
 
 class MyApp extends StatelessWidget {
-  // final bool? onBoarding;
   final AppRouter appRouter;
   final String startWidget;
 
@@ -54,10 +51,8 @@ class MyApp extends StatelessWidget {
     super.key,
     required this.appRouter,
     required this.startWidget,
-    // required this.onBoarding,
   });
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
