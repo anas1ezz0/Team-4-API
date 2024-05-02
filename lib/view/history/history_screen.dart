@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:team_project/generated/app_assets.dart';
 import 'package:team_project/theming/colors.dart';
 
 class HistoryScreen extends StatelessWidget {
@@ -48,7 +49,7 @@ class HistoryScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       Image.asset(
-                        'assets/images/osama 1.png',
+                        AppAssets.doctorImage,
                         fit: BoxFit.cover,
                       ),
                       const Column(

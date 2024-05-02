@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:team_project/core/utilts/widgets/custom_text_form_field.dart';
+import 'package:team_project/core/utilts/widgets/show_toast_widget.dart';
 import 'package:team_project/helpers/extentions.dart';
 import 'package:team_project/view/sign_up/presentation/view/widgets/upload_profile_image.dart';
 import '../../../../../helpers/spacing.dart';
@@ -12,7 +13,6 @@ import '../../../../../theming/colors.dart';
 import '../../../../sign_in/presentation/view/widgets/custom_button.dart';
 import '../../view_model/sign_up/cubit.dart';
 import '../../view_model/sign_up/states.dart';
-
 
 class SignUnCard extends StatefulWidget {
   const SignUnCard({
@@ -53,20 +53,18 @@ class _SignUnCardState extends State<SignUnCard> {
             top: 160.h,
             left: 44.w,
             right: 43.w,
-            child: SingleChildScrollView(
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: AppColor.secondaryColor,
-                    width: 8,
-                  ),
-                  color: AppColor.mainColor,
-                  borderRadius: BorderRadius.circular(30.r),
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: AppColor.secondaryColor,
+                  width: 8,
                 ),
-                child: Padding(
+                color: AppColor.mainColor,
+                borderRadius: BorderRadius.circular(30.r),
+              ),
+              child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                  child: SingleChildScrollView(
-                      child: Form(
+                  child: Form(
                     key: formKey,
                     child: Column(children: [
                       verticalSpace(15),
@@ -203,15 +201,22 @@ class _SignUnCardState extends State<SignUnCard> {
                           ? AppTextButton(
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
-                                  cubit.userSignUp(
-                                    email: emailController.text,
-                                    name: nameController.text,
-                                    phone: phoneController.text,
-                                    otp: otpController.text,
-                                    password: passwordController.text,
-                                    confirmPassword:
-                                        confirmPasswordController.text,
-                                  );
+                                  if (cubit.profilePic == null) {
+                                    showToast(
+                                      text: "image is required",
+                                      states: ToastStates.ERROR,
+                                    );
+                                  } else {
+                                    cubit.userSignUp(
+                                      email: emailController.text,
+                                      name: nameController.text,
+                                      phone: phoneController.text,
+                                      otp: otpController.text,
+                                      password: passwordController.text,
+                                      confirmPassword:
+                                          confirmPasswordController.text,
+                                    );
+                                  }
                                 }
                               },
                               buttonText: 'Sign up',
@@ -228,8 +233,6 @@ class _SignUnCardState extends State<SignUnCard> {
                       verticalSpace(20),
                     ]),
                   )),
-                ),
-              ),
             ));
       },
     );

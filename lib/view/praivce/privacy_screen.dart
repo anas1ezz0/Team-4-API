@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:team_project/helpers/extentions.dart';
 import 'package:team_project/helpers/spacing.dart';
 import 'package:team_project/theming/colors.dart';
 import 'package:team_project/view/payment_option/widget/payment_option_body.dart';
@@ -21,7 +22,9 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
         centerTitle: true,
         backgroundColor: AppColor.mainColor,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            context.pop();
+          },
           icon: Icon(
             Icons.arrow_back_ios_new_outlined,
             color: AppColor.secondaryColor,

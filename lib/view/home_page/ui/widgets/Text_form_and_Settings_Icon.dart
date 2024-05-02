@@ -1,9 +1,12 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:team_project/core/app_assets.dart';
 import 'package:team_project/core/utilts/widgets/custom_text_form_field.dart';
 import 'package:team_project/helpers/spacing.dart';
 import 'package:team_project/theming/colors.dart';
+
+import '../../../../generated/app_assets.dart';
 
 class TextFormAndSettingsIcon extends StatelessWidget {
   const TextFormAndSettingsIcon({
@@ -15,7 +18,6 @@ class TextFormAndSettingsIcon extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 24),
       child: Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
             child: AppTextFormField(

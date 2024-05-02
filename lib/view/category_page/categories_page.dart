@@ -5,11 +5,11 @@ import 'package:team_project/view/home_page/model/home_page_category_model.dart'
 
 import '../../routing/routing.dart';
 
-class CategorieScreen extends StatefulWidget {
-  const CategorieScreen({super.key});
+class CategoriesScreen extends StatefulWidget {
+  const CategoriesScreen({super.key});
 
   @override
-  State<CategorieScreen> createState() => _CategorieScreenState();
+  State<CategoriesScreen> createState() => _CategoriesScreenState();
 }
 
 List<CategoryPageModel> categoryListHere = [
@@ -39,19 +39,19 @@ List<CategoryPageModel> categoryListHere = [
   ),
 ];
 
-class _CategorieScreenState extends State<CategorieScreen> {
+class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              context.pop();
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios_new,
-              color: Colors.white,
-            )),
+        // leading: IconButton(
+        //     onPressed: () {
+        //       context.pop();
+        //     },
+        //     icon: const Icon(
+        //       Icons.arrow_back_ios_new,
+        //       color: Colors.white,
+        //     )),
         backgroundColor: AppColor.mainColor,
         elevation: 0.0,
         centerTitle: true,
