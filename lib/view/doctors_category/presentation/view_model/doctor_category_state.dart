@@ -1,4 +1,4 @@
-part of 'doctorcategory_cubit.dart';
+part of 'doctor_category_cubit.dart';
 
 @immutable
 abstract class DoctorCategoryState {}

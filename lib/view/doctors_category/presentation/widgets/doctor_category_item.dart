@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:team_project/view/doctors_category/presentation/widgets/rating_star_list_view.dart';
-
 import '../../../../theming/colors.dart';
 
 class DoctorCategoryItem extends StatelessWidget {

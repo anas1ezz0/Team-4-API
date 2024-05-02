@@ -6,3 +6,5 @@ sealed class AppState {}
 final class AppInitial extends AppState {}
 
 final class ButtonNavBarChangeState extends AppState {}
+
+final class ChangedSuccessfully extends AppState {}

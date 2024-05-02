@@ -1,6 +1,5 @@
-// ignore_for_file: avoid_print
-
 import 'package:bloc/bloc.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +8,6 @@ import 'package:team_project/core/di/service_locator.dart';
 import 'package:team_project/routing/app_routes.dart';
 import 'package:team_project/routing/routing.dart';
 import 'package:team_project/theming/colors.dart';
-import 'package:team_project/view/doctors_category/presentation/view_model/doctorcategory_cubit.dart';
 import 'core/bloc_abserver.dart';
 import 'helpers/constants.dart';
 import 'helpers/network/local/cache_helper.dart';
@@ -38,10 +36,12 @@ void main() async {
     startWidget = Routes.onBoardingScreen;
   }
 
-  runApp(MyApp(
-    appRouter: AppRouter(),
-    startWidget: startWidget,
-    // onBoarding: onBoarding,
+  runApp(DevicePreview(
+    builder: (context) => MyApp(
+      appRouter: AppRouter(),
+      startWidget: startWidget,
+      // onBoarding: onBoarding,
+    ),
   ));
 }
 
@@ -66,17 +66,15 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(428, 926),
       minTextAdapt: true,
-      child: BlocProvider(
-        create: (context) => DoctorCategoryCubit(),
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            primaryColor: AppColor.mainColor,
-            useMaterial3: true,
-          ),
-          initialRoute: Routes.allScreens,
-          onGenerateRoute: appRouter.generateRoute,
+      child: MaterialApp(
+        builder: DevicePreview.appBuilder,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primaryColor: AppColor.mainColor,
+          useMaterial3: true,
         ),
+        initialRoute: Routes.allScreens,
+        onGenerateRoute: appRouter.generateRoute,
       ),
     );
   }

@@ -25,6 +25,8 @@ class ProfileItemsList extends StatelessWidget {
                 onTap: () {
                   if (index == 1) {
                     context.pushNamed(Routes.profileDetailsScreen);
+                  } else if (index == items.length - 1) {
+                    context.pushNamed(Routes.logOutScreen);
                   }
                 },
                 contentPadding: const EdgeInsets.symmetric(horizontal: 40),

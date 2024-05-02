@@ -32,20 +32,17 @@ class BookDoctorItem extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-              const Text(
+              Text(
                 'Speech',
                 style: TextStyle(
-                  color: Color(0xffBDCAD6),
-                  fontSize: 20,
+                  color: const Color(0xffBDCAD6),
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const SizedBox(
-                height: 8,
-              ),
               Container(
                 width: 70.w,
-                height: 20.h,
+                height: 18.h,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16.r),
                     border: Border.all(width: 1, color: Colors.white)),
@@ -54,7 +51,7 @@ class BookDoctorItem extends StatelessWidget {
                   Text(
                     '4.9',
                     style: TextStyle(
-                        fontSize: 16.sp,
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.w500,
                         color: Colors.white),
                   ),

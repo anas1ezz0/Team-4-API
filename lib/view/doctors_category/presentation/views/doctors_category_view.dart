@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team_project/helpers/extentions.dart';
-import 'package:team_project/view/doctors_category/presentation/view_model/doctorcategory_cubit.dart';
+import 'package:team_project/view/doctors_category/presentation/view_model/doctor_category_cubit.dart';
 import 'package:team_project/view/doctors_category/presentation/widgets/grid_book_item_listview.dart';
 import '../../../../theming/colors.dart';
 import '../widgets/book_doctor_items_list_view.dart';

@@ -19,7 +19,11 @@ class GridBookDoctorItem extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 9),
-              child: Image.asset('assets/images/dr_osama_image.png'),
+              child: Image.asset(
+                height: 110.h,
+                'assets/images/dr_osama_image.png',
+                fit: BoxFit.scaleDown,
+              ),
             ),
             Text(
               'Dr: Osama ali',
@@ -29,17 +33,20 @@ class GridBookDoctorItem extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            const Text(
+            Text(
               'Speech',
               style: TextStyle(
-                color: Color(0xffBDCAD6),
-                fontSize: 20,
+                color: const Color(0xffBDCAD6),
+                fontSize: 20.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
+            SizedBox(
+              height: 5.h,
+            ),
             Container(
               width: 70.w,
-              height: 20.h,
+              height: 30.h,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16.r),
                   border: Border.all(width: 1, color: Colors.white)),

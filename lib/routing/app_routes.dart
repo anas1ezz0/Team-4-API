@@ -1,15 +1,15 @@
-// ignore_for_file: unused_local_variable
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team_project/core/cubit/app_cubit.dart';
 import 'package:team_project/core/di/service_locator.dart';
 import 'package:team_project/routing/routing.dart';
 import 'package:team_project/view/category_page/categories_page.dart';
+import 'package:team_project/view/doctors_category/presentation/view_model/doctor_category_cubit.dart';
 import 'package:team_project/view/doctors_category/presentation/views/doctors_category_view.dart';
 import 'package:team_project/view/edit_profile/presentation/edit_profile_view.dart';
 import 'package:team_project/view/history/history_screen.dart';
 import 'package:team_project/view/home_page/ui/home_page.dart';
+import 'package:team_project/view/logout/presentation/view/log_out_view.dart';
 import 'package:team_project/view/onBoarding/ui/onboarding.dart';
 import 'package:team_project/view/payment_option/ui/payment_option_screen.dart';
 import 'package:team_project/view/payment_option/ui/succes_appointment_screen.dart';
@@ -54,14 +54,18 @@ class AppRouter {
         );
       case Routes.allScreens:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => AppCubit(),
-            child: const MainScreens(),
-          ),
+          builder: (_) => MultiBlocProvider(providers: [
+            BlocProvider(create: (context) => AppCubit()),
+            BlocProvider(create: (context) => DoctorCategoryCubit()),
+          ], child: const MainScreens()),
         );
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomePage(),
+        );
+      case Routes.logOutScreen:
+        return MaterialPageRoute(
+          builder: (_) => const LogOutView(),
         );
       case Routes.categoriesScreen:
         return MaterialPageRoute(
@@ -80,7 +84,11 @@ class AppRouter {
           builder: (_) => const HistoryScreen(),
         );
       case Routes.doctorsCategoryScreen:
-        return MaterialPageRoute(builder: (_) => const DoctorsCategoryView());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => DoctorCategoryCubit(),
+                  child: const DoctorsCategoryView(),
+                ));
       case Routes.dateAndTimeScreen:
         return MaterialPageRoute(
             builder: (context) => const SelectDateAndTimeView());
