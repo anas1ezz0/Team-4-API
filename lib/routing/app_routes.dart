@@ -19,6 +19,7 @@ import 'package:team_project/view/select_date_and_time/presentation/view/select_
 import 'package:team_project/view/sign_in/presentation/view_model/sign_in_cubit.dart';
 import 'package:team_project/view/sign_in/sign_in_view.dart';
 import '../view/all_screens.dart';
+import '../view/settings_page/ui/settings_screen.dart';
 import '../view/sign_in/data/repos/sign_in_repo_imp.dart';
 import '../view/sign_up/presentation/view/pre_sign_up_view.dart';
 import '../view/sign_up/presentation/view/sign_up_view.dart';
@@ -69,7 +70,7 @@ class AppRouter {
         );
       case Routes.categoriesScreen:
         return MaterialPageRoute(
-          builder: (_) => const CategorieScreen(),
+          builder: (_) => const CategoriesScreen(),
         );
       case Routes.paymentOptionScreen:
         return MaterialPageRoute(
@@ -100,7 +101,10 @@ class AppRouter {
 
       case Routes.privacyScreen:
         return MaterialPageRoute(builder: (context) => const PrivacyScreen());
-
+      case Routes.settingsScreen:
+        return MaterialPageRoute(
+          builder: (context) => const SettingsScreen(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

@@ -25,6 +25,8 @@ class ProfileItemsList extends StatelessWidget {
                 onTap: () {
                   if (index == 1) {
                     context.pushNamed(Routes.profileDetailsScreen);
+                  } else if (index == 3) {
+                    context.pushNamed(Routes.settingsScreen);
                   } else if (index == items.length - 1) {
                     context.pushNamed(Routes.logOutScreen);
                   }

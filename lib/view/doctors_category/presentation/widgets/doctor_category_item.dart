@@ -12,7 +12,7 @@ class DoctorCategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
+      onTap: () {
         context.pushNamed(Routes.doctorProfileView);
       },
       child: Container(
