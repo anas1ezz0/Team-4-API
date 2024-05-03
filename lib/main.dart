@@ -36,12 +36,10 @@ void main() async {
     startWidget = Routes.onBoardingScreen;
   }
 
-  runApp(DevicePreview(
-    builder: (context) => MyApp(
-      appRouter: AppRouter(),
-      startWidget: startWidget,
-      // onBoarding: onBoarding,
-    ),
+  runApp(MyApp(
+    appRouter: AppRouter(),
+    startWidget: startWidget,
+    // onBoarding: onBoarding,
   ));
 }
 

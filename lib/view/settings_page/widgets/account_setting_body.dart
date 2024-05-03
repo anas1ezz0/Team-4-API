@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:team_project/helpers/extentions.dart';
+import 'package:team_project/helpers/spacing.dart';
+import 'package:team_project/view/settings_page/ui/widgets/bottom_sheet_contents.dart';
 import 'package:team_project/view/settings_page/widgets/settings_item.dart';
 
 class AccountSettingBody extends StatelessWidget {
@@ -25,10 +28,19 @@ class AccountSettingBody extends StatelessWidget {
               leading: Image.asset('assets/images/Group 14004.png'),
             ),
           ),
-          SettingsItem(
-            title: const Text('Change Password'),
-            subtitle: const Text('Change your current password'),
-            leading: Image.asset('assets/images/Group 14005.png'),
+          GestureDetector(
+            onTap: () {
+              showModalBottomSheet(
+                  context: context,
+                  builder: (context) {
+                    return const BottomSheetContents();
+                  });
+            },
+            child: SettingsItem(
+              title: const Text('Change Password'),
+              subtitle: const Text('Change your current password'),
+              leading: Image.asset('assets/images/Group 14005.png'),
+            ),
           ),
         ],
       ),
