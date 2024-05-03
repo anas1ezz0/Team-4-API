@@ -8,7 +8,7 @@ Future<dynamic> rateDialog(BuildContext context) {
   return showDialog(
       context: context,
       builder: (context) => AlertDialog(
-            backgroundColor: AppColor.textColor,
+            backgroundColor: AppColor.dialogColor,
             title: Padding(
               padding: const EdgeInsets.only(
                   top: 15.0, right: 30, bottom: 5, left: 5),

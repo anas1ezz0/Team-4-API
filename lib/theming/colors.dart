@@ -4,6 +4,7 @@ class AppColor {
   static Color mainColor = const Color(0xff336EA6);
   static Color secondaryColor = const Color(0xffffffff);
   static Color textColor = const Color(0xff233B55);
+  static Color dialogColor = const Color(0xff144774);
   static Color transparentColor = Colors.transparent;
   static Color greyColor = const Color(0xFF9E9E9E);
   static Color lightgreyColor = const Color(0xFFBDCAD6);
