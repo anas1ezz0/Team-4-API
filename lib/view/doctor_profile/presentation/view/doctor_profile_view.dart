@@ -26,9 +26,9 @@ class DoctorProfileView extends StatelessWidget {
       body: Column(
         children: [
           const DoctorProfileImage(),
-          Expanded(
-              child: Container(
+          Container(
             width: double.infinity,
+            // height: 650.h,
             decoration: BoxDecoration(
                 color: AppColor.mainColor,
                 borderRadius: const BorderRadius.only(
@@ -41,7 +41,7 @@ class DoctorProfileView extends StatelessWidget {
                 DoctorInfoContainer(),
               ],
             ),
-          ))
+          )
         ],
       ),
     );

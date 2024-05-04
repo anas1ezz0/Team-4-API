@@ -19,6 +19,8 @@ import 'package:team_project/view/select_date_and_time/presentation/view/select_
 import 'package:team_project/view/sign_in/presentation/view_model/sign_in_cubit.dart';
 import 'package:team_project/view/sign_in/sign_in_view.dart';
 import '../view/all_screens.dart';
+import '../view/doctor_profile/presentation/view/doctor_profile_view.dart';
+import '../view/message_doctor/presentation/view/messege_doctor_view.dart';
 import '../view/settings_page/ui/settings_screen.dart';
 import '../view/sign_in/data/repos/sign_in_repo_imp.dart';
 import '../view/sign_up/presentation/view/pre_sign_up_view.dart';
@@ -104,6 +106,14 @@ class AppRouter {
       case Routes.settingsScreen:
         return MaterialPageRoute(
           builder: (context) => const SettingsScreen(),
+        );
+      case Routes.doctorProfileView:
+        return MaterialPageRoute(
+          builder: (_) => const DoctorProfileView(),
+        );
+      case Routes.messageDoctorView:
+        return MaterialPageRoute(
+          builder: (_) => const MessageDoctorView(),
         );
       default:
         return MaterialPageRoute(

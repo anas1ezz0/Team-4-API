@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:team_project/theming/colors.dart';
 
 import '../../../../helpers/spacing.dart';
 import 'confirm_and_cancel_buttons.dart';

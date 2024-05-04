@@ -8,10 +8,10 @@ class DoctorProfileImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return           SizedBox(
+    return SizedBox(
       width: double.infinity,
-      height: 200.h,
-      child: Image.asset(AppAssets.doctorImage,fit: BoxFit.fitHeight,),
+      height:180.h,
+      child: Image.asset(AppAssets.doctorImage,),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:team_project/helpers/extentions.dart';
 import 'package:team_project/helpers/spacing.dart';
 import 'package:team_project/theming/colors.dart';
 import 'package:team_project/view/settings_page/widgets/account_setting_body.dart';
@@ -19,7 +20,9 @@ class SettingsScreen extends StatelessWidget {
           style: TextStyle(color: AppColor.secondaryColor),
         ),
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context.pop();
+            },
             icon: const Icon(
               Icons.arrow_back_ios_new_outlined,
               color: Colors.white,

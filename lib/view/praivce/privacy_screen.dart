@@ -63,7 +63,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                     fontWeight: FontWeight.w400,
                     horizontal: 20,
                     text: "Cancel",
-                    color: AppColor.lightgreyColor,
+                    color: AppColor.lightGreyColor,
                     textColor: AppColor.textColor,
                   ),
                 ],

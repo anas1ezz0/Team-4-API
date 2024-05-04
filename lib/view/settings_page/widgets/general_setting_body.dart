@@ -3,6 +3,8 @@ import 'package:team_project/view/settings_page/widgets/feedback.dart';
 import 'package:team_project/view/settings_page/widgets/rate_dialog.dart';
 import 'package:team_project/view/settings_page/widgets/settings_item.dart';
 
+import 'feedback.dart';
+
 class GeneralSettingsBody extends StatelessWidget {
   const GeneralSettingsBody({super.key});
 

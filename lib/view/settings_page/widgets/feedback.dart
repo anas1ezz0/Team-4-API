@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:team_project/helpers/spacing.dart';
 import 'package:team_project/theming/colors.dart';
 import 'package:team_project/view/payment_option/widget/payment_option_body.dart';
-import 'package:team_project/view/settings_page/widgets/feed_back_options.dart';
+
+import 'feedback_options.dart';
 
 Future<dynamic> feedBackDialog(BuildContext context) {
   return showDialog(

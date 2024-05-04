@@ -27,12 +27,12 @@ class StarsRate extends StatelessWidget {
         ),
         Icon(
           Icons.star,
-          color: AppColor.stargreyColor,
+          color: AppColor.starGreyColor,
           size: 40,
         ),
         Icon(
           Icons.star,
-          color: AppColor.stargreyColor,
+          color: AppColor.starGreyColor,
           size: 40,
         ),
       ],

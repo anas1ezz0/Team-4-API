@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:team_project/helpers/extentions.dart';
 
+import '../../../../routing/routing.dart';
 import 'book_grid_doctor_item.dart';
 
 class GridBookDoctorItemsList extends StatelessWidget {
@@ -18,7 +20,11 @@ class GridBookDoctorItemsList extends StatelessWidget {
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              return const GridBookDoctorItem();
+              return GestureDetector(
+                  onTap: () {
+                    context.pushNamed(Routes.doctorProfileView);
+                  },
+                  child: const GridBookDoctorItem());
             },
             childCount: 10,
           ),

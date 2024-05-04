@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:team_project/helpers/extentions.dart';
@@ -23,7 +22,9 @@ class ProfileItemsList extends StatelessWidget {
           items.length,
           (index) => ListTile(
                 onTap: () {
-                  if (index == 1) {
+                  if (index == 0) {
+                    context.pushNamed(Routes.historyScreen);
+                  } else if (index == 1) {
                     context.pushNamed(Routes.profileDetailsScreen);
                   } else if (index == 3) {
                     context.pushNamed(Routes.settingsScreen);

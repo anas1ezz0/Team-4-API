@@ -21,4 +21,5 @@ class Routes {
   static const String doctorCategoryView = 'doctorCategoryView';
   static const String settingsScreen = 'settingsScreen';
   static const String doctorProfileView = 'doctorProfileView';
+  static const String messageDoctorView = 'messageDoctorView';
 }
