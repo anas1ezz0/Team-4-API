@@ -11,5 +11,5 @@ class AppColor {
   static Color starGreyColor = const Color(0xFFD9D9D9);
   static Color skyColor = const Color(0xff9ECAE3);
   static Color yellowColor = const Color(0xffFFE665);
-  static Color dialogColor = const Color(0xff144774);
+
 }

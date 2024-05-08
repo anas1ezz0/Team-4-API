@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:team_project/helpers/extentions.dart';
+import 'package:team_project/helpers/spacing.dart';
 import 'package:team_project/view/settings_page/ui/widgets/bottom_sheet_contents.dart';
 import 'package:team_project/view/settings_page/widgets/settings_item.dart';
 
